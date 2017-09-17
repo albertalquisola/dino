@@ -1,0 +1,10 @@
+.scorecard {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  .spinner, .scorecard-text {
+    text-size: 36px;
+    color: $gray;
+  }
+}

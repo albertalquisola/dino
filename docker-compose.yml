@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  tra:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.development
+    volumes:
+        - .:/root/tra
+    ports:
+        # main tra app
+        - "3000:3000"
+
+        # chrome devtools
+        - "9229:9229"
+    links:
+      - tra-db
+    tty: true
+    stdin_open: true
+    container_name: tra
+    command: /sbin/my_init
+
+  tra-db:
+    image: mysql:5.7.14
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+    container_name: tra-db
+    ports:
+      - "3306:3306"
+
+  tra-redis:
+    image: redis:3.0.7-alpine
+    container_name: tra-redis
+    ports:
+      - "6379:6379"

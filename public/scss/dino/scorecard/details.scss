@@ -1,0 +1,214 @@
+.details {
+
+  .mobile, .desktop, .seo, .social {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 10px $black;
+    position: relative;
+    z-index: 1;
+
+    .domain-name {
+      color: $orange;
+      font-size: 20px;
+      position: relative;
+      bottom: 9px;
+      font-weight: 200;
+    }
+
+    .iphone-container, .laptop-container {
+      position: absolute;
+      left: 100px;
+      top: 75px;
+
+      .mobile-screenshot {
+        height: auto;
+        max-height: 331px;
+        position: relative;
+        z-index: -1;
+        right: 200px;
+        top: 10px;
+      }
+
+      .laptop-screenshot {
+        height: auto;
+        width: 198px;
+        bottom: 8px;
+        right: 249px;
+        position: relative;
+        z-index: -1;
+      }
+    }
+
+    .score-coin-container {
+      margin-top: 10px;
+      margin-bottom: 20px;
+
+      .score-coin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .coin-circle {
+          border-radius: 50%;
+          width: 130px;
+          height: 130px;
+          position: relative;
+          z-index: -1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $gray-base;
+          font-size: 72px;
+
+          .grade {
+            position: relative;
+            top: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  .rules-container {
+    width: 500px;
+
+    .title {
+      font-size: 24px;
+      color: $gray-light;
+    }
+
+    .explanation-text-top {
+      color: $orange;
+      font-size: 12px;
+      margin: 10px 0px 5px 0px;
+    }
+
+    .explanation-text-bottom {
+      font-size: 12px;
+      color: $gray-light;
+      margin-bottom: 10px;
+    }
+
+    .bar {
+      background-color: $gray-mid;
+      width: 500px;
+      height: 2px;
+      margin: 5px 0px;
+    }
+
+    .speed-title {
+      margin-top: 10px;
+      font-size: 20px;
+      color: $orange;
+    }
+
+    .speed-text {
+      font-size: 12px;
+    }
+
+    .rules {
+      font-size: 20px;
+      margin-bottom: 60px;
+
+      .connected-container, .not-connected-container, .seo-section {
+        margin-top: 40px;
+
+        .social-logo, .seo-icon {
+          margin-bottom: 10px;
+        }
+
+        .account-name {
+          font-size: 24px;
+          color: $gray-light;
+        }
+
+        .bar {
+          margin-bottom: 10px;
+        }
+
+        .unable {
+          font-size: 14px;
+        }
+
+        .prompt-text {
+          font-size: 14px;
+        }
+
+        .yes-no-box {
+          display: flex;
+          align-items: center;
+          padding: 15px 10px;
+
+          .wrapper {
+            margin-left: 10px;
+
+            .selection-btns {
+              margin-top: 10px;
+
+              .no-btn, .yes-btn {
+                font-family: "Cinzel";
+                font-size: 14px;
+                padding: 3px 50px;
+                text-transform: uppercase;
+              }
+
+              .no-btn {
+                margin-right: 10px;
+
+                &:hover {
+                  background-color: $orange;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .bullets {
+        margin-top: 40px;
+        margin-bottom: 10px;
+      }
+
+      .rulebar {
+        margin-bottom: 10px;
+      }
+
+      .ruleRow-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 14px;
+        height: 45px;
+
+        .small-bullets {
+          margin-right: 10px;
+          margin-left: 5px;
+        }
+
+        .red-bullet {
+          color: $red;
+        }
+
+        .green-bullet {
+          color: $green;
+        }
+
+        .orange-bullet {
+          color: $orange;
+        }
+
+        .rule {
+          max-width: 450px;
+        }
+
+        .bold {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+}

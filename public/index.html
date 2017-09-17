@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Dino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <div id="mount"></div>
+    <script src="https://use.fontawesome.com/dd4ca65154.js" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQHgooJ9_5Ub3ruI2UWZQ0p15h4eF8CQ8&libraries=places" async defer></script>
+    {{#if isProd}}
+      <script type="text/javascript" src="/public/webpack_prod_bundle.js" async></script>
+    {{else}}
+      <script type="text/javascript" src="/public/webpack_bundle.js" async></script>
+    {{/if}}
+  </body>
+</html>

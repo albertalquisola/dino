@@ -1,0 +1,116 @@
+.add-competitor-modal {
+
+  .modal-dialog {
+    width: 500px;
+  }
+
+  .modal-content {
+    background-color: $cream;
+    height: 350px;
+  }
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .error-msg {
+    text-align: center;
+    color: $red;
+  }
+
+  .enter-competitor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 28px;
+
+    .prompt {
+      font-size: 16px;
+    }
+
+    .subprompt {
+      margin-top: 5px;
+    }
+
+    .enter-competitors-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        width: 280px;
+        margin-top: 20px;
+        border: 1px solid $orange;
+        height: 30px;
+        text-align: center;
+      }
+
+      .enter-competitor-btn {
+        font-size: 12px;
+        padding: 3px 40px;
+        border-radius: 3px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .fetching-competitor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      font-size: 18px;
+    }
+
+    .three-bounce {
+      margin-top: 20px;
+
+      div {
+        margin-right: 10px;
+        background-color: $orange;
+      }
+    }
+  }
+
+  .verify {
+    position: relative;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .screenshot {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      margin-top: 10px;
+
+      .laptop-screenshot {
+        position: absolute;
+        bottom: 76px;
+        z-index: -1;
+        height: 151px;
+        left: 134px;
+      }
+    }
+
+    .competitor-buttons {
+      margin-top: 10px;
+    }
+
+    .no-btn, .yes-btn {
+      padding: 7px 60px;
+      font-size: 12px;
+    }
+
+    .no-btn {
+      background-color: transparent;
+      margin-right: 10px;
+
+      &:hover {
+        background-color: $orange;
+      }
+    }
+  }
+}

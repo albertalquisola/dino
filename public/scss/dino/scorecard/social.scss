@@ -1,0 +1,21 @@
+.add-sm-accounts {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .add-sm-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    box-shadow: 1px 1px 10px black, -1px 0px 10px black;
+  }
+
+  .add-account-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
