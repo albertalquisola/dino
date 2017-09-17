@@ -9,10 +9,10 @@
 3. run `npm run dev-start`
 4. visit localhost:3000/errorTest (should see a predefined json error. if you do, were live!)
 
-# How to start node inspector
-1. run `docker exec -it tra bash` (jump inside the tra docker container)
-2. run `node-inspector --no-preload`
-3. visit localhost:8080 (node inspector server is running there)
+# How to debug tra
+1. start up tra with directions above
+2. go to `about:inspect` in chrome
+3. click on the remote target link
 
 # Docker
 
