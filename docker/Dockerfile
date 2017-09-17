@@ -5,9 +5,6 @@ MAINTAINER Albert <aalquiso@gmail.com>
 # Making runit service directories
 RUN mkdir -p /root/tra/logs
 
-# Scripts to run on startup
-COPY docker/scripts/profile /etc/profile.d/
-
 # Copy over all app files
 COPY . /root/tra
 RUN /bin/cp -fRT /tmp/node_modules/ /root/tra/node_modules/
@@ -22,7 +19,6 @@ ENV NODE_PATH /root/tra/node_modules:/root/tra/lib:/root/tra:/usr/lib/nodejs:/us
 
 # Ports:
 # 3000: tra endpoints
-# 8080: node-inspector server
-EXPOSE 3000 8080
+EXPOSE 3000
 
 CMD /sbin/my_init -- ./start.sh

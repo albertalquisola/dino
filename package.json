@@ -5,7 +5,7 @@
   "description": "project tra tracker",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": " source ./env/production && source ./env/secrets && node app.js",
     "dev-start": "source ./env/development && source ./env/dev-secrets && node --inspect=localhost:9229 app.js",
     "lint": "eslint . --ext .js --ignore-path .gitignore --cache; exit 0",
     "lint:fix": "eslint . --ext .js --ignore-path .gitignore --cache --fix; exit 0"
