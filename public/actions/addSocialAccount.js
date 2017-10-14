@@ -5,67 +5,67 @@ import scorecardActions from 'actions/scorecard';
 const ADD_SOCIAL_ACTIONS = {
   addAnotherAccount: () => {
     return {
-      type: 'ADD_ANOTHER_ACCOUNT'
+      type: 'ADD_ANOTHER_ACCOUNT',
     };
   },
 
   backToNoAccount: () => {
     return {
-      type: 'BACK_TO_NO_ACCOUNT'
+      type: 'BACK_TO_NO_ACCOUNT',
     };
   },
 
   hasAccount: (account) => {
     return {
       type: 'HAS_ACCOUNT',
-      payload: account
+      payload: account,
     };
   },
 
   fetchedAccountDetails: (accountDetails) => {
     return {
       type: 'FETCHED_ACCOUNT_DETAILS',
-      payload: accountDetails
+      payload: accountDetails,
     };
   },
 
   updatedAccount: () => {
     return {
-      type: 'UPDATED_ACCOUNT'
+      type: 'UPDATED_ACCOUNT',
     };
   },
 
   showSocialModal: (account) => {
     return {
       type: 'SHOW_SOCIAL_MODAL',
-      payload: account
+      payload: account,
     };
   },
 
   hideSocialModal: () => {
     return {
-      type: 'HIDE_SOCIAL_MODAL'
+      type: 'HIDE_SOCIAL_MODAL',
     };
   },
 
   invalidId: () => {
     return {
-      type: 'INVALID_ACCOUNT_ID'
+      type: 'INVALID_ACCOUNT_ID',
     };
   },
 
   errorFetchingAccountDetails: (error) => {
     return {
       type: 'ERROR_FETCHING_ACCOUNT_DETAILS',
-      error
+      error,
     };
   },
 
   errorUpdatingAccount: (error) => {
     return {
-      type: 'ERROR_UPDATING_ACCOUNT'
+      type: 'ERROR_UPDATING_ACCOUNT',
     };
-  }
+  },
 };
 
 exports.addAnotherAccount = () => {

@@ -3,42 +3,42 @@ import fetcher from 'util/fetcher';
 const COMPETITOR_ACTIONS = {
   resetCompetitorReport: () => {
     return {
-      type: 'RESET_COMPETITOR_REPORT'
+      type: 'RESET_COMPETITOR_REPORT',
     };
   },
 
   postingCompetitorReport: () => {
     return {
-      type: 'POSTING_COMPETITOR_REPORT'
+      type: 'POSTING_COMPETITOR_REPORT',
     };
   },
 
   postedCompetitorReport: (reportId) => {
     return {
       type: 'POSTED_COMPETITOR_REPORT',
-      payload: reportId
+      payload: reportId,
     };
   },
 
   noCompetitorsSelected: () => {
     return {
-      type: 'NO_COMPETITORS_SELECTED'
+      type: 'NO_COMPETITORS_SELECTED',
     };
   },
 
   competitorReportError: (error) => {
     return {
       type: 'COMPETITOR_REPORT_ERROR',
-      error
+      error,
     };
   },
 
   competitorError: (error) => {
     return {
       type: 'COMPETITOR_ERROR',
-      error
+      error,
     };
-  }
+  },
 };
 
 exports.resetCompetitorReport = () => {

@@ -3,23 +3,23 @@ import fetcher from 'util/fetcher';
 const COMPETITOR_REPORT_ACTIONS = {
   fetchingCompetitorReport: () => {
     return {
-      type: 'FETCHING_COMPETITOR_REPORT'
+      type: 'FETCHING_COMPETITOR_REPORT',
     };
   },
 
   fetchedCompetitorReport: (report) => {
     return {
       type: 'FETCHED_COMPETITOR_REPORT',
-      payload: report
+      payload: report,
     };
   },
 
   reportError: (error) => {
     return {
       type: 'REPORT_ERROR',
-      error
+      error,
     };
-  }
+  },
 };
 
 exports.getReport = (competitorReportId) => {

@@ -3,20 +3,20 @@ const competitorReportReducer = (state = {}, action) => {
     case 'FETCHING_COMPETITOR_REPORT':
       return {
         ...state,
-        fetchingCompetitorReport: true
+        fetchingCompetitorReport: true,
       };
 
     case 'FETCHED_COMPETITOR_REPORT':
       return {
         ...state,
         fetchingCompetitorReport: false,
-        ...action.payload
+        ...action.payload,
       };
     case 'REPORT_ERROR':
       return {
         ...state,
         ...action.error,
-        fetchingCompetitorReport: false
+        fetchingCompetitorReport: false,
       };
 
     default:

@@ -38,7 +38,7 @@ class RuleRow extends React.Component {
 RuleRow.propTypes = {
   bulletColor: React.PropTypes.string.isRequired,
   rule: React.PropTypes.string,
-  ruleArr: React.PropTypes.array
+  ruleArr: React.PropTypes.array,
 };
 
 module.exports = RuleRow;

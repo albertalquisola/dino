@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     resetAnalyzer: () => {
       return dispatch(actions.scorecard.resetAnalyzer());
-    }
+    },
   };
 };
 

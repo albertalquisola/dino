@@ -24,7 +24,7 @@ class SocialMetrics extends React.Component {
 
 SocialMetrics.propTypes = {
   domainName: React.PropTypes.string.isRequired,
-  metrics: React.PropTypes.array.isRequired
+  metrics: React.PropTypes.array.isRequired,
 };
 
 module.exports = SocialMetrics;

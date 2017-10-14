@@ -71,7 +71,7 @@ class Competitors extends React.Component {
 
   render() {
     const competitors = [];
-    let navbar = (<Navbar requestId={this.props.requestId}
+    const navbar = (<Navbar requestId={this.props.requestId}
                   companyId={this.props.companyId}
                   domainName={this.props.domainName} />);
 
@@ -124,7 +124,7 @@ class Competitors extends React.Component {
 }
 
 Competitors.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: React.PropTypes.object.isRequired,
 };
 
 Competitors.propTypes = {
@@ -136,7 +136,7 @@ Competitors.propTypes = {
   companyId: React.PropTypes.number,
   requestId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
+    React.PropTypes.number,
   ]),
   domainName: React.PropTypes.string,
   competitors: React.PropTypes.array,
@@ -148,8 +148,8 @@ Competitors.propTypes = {
   noCompetitorsSelected: React.PropTypes.func.isRequired,
 
   params: React.PropTypes.shape({
-    companyId: React.PropTypes.string.isRequired
-  }).isRequired
+    companyId: React.PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 module.exports = Competitors;

@@ -3,43 +3,43 @@ import fetcher from 'util/fetcher';
 const COMPANY_ACTIONS = {
   fetchingCompany: () => {
     return {
-      type: 'FETCHING_COMPANY'
+      type: 'FETCHING_COMPANY',
     };
   },
 
   fetchedCompany: (company) => {
     return {
       type: 'FETCHED_COMPANY',
-      payload: company
+      payload: company,
     };
   },
 
   errorFetchingCompany: (error) => {
     return {
       type: 'ERROR_FETCHING_COMPANY',
-      error
+      error,
     };
   },
 
   postingCompany: () => {
     return {
-      type: 'POSTING_COMPANY'
+      type: 'POSTING_COMPANY',
     };
   },
 
   postedCompany: (company) => {
     return {
       type: 'POSTED_COMPANY',
-      payload: { company }
+      payload: { company },
     };
   },
 
   errorPostingCompany: (error) => {
     return {
       type: 'ERROR_POSTING_COMPANY',
-      error
+      error,
     };
-  }
+  },
 };
 
 exports.getCompany = (companyId) => {

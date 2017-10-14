@@ -9,7 +9,7 @@ class NotConnected extends React.Component {
         accountName: this.props.name,
         companyId: this.props.companyId,
         requestId: this.props.requestId,
-        accountId: ''
+        accountId: '',
       };
 
       this.props.hasNoAccount(options);
@@ -74,8 +74,8 @@ NotConnected.propTypes = {
   requestId: React.PropTypes.string.isRequired,
   companyId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
-  ])
+    React.PropTypes.number,
+  ]),
 };
 
 module.exports = NotConnected;

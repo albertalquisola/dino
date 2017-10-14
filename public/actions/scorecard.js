@@ -6,61 +6,61 @@ import fetcher from 'util/fetcher';
 const SC_ACTIONS = {
   calculatingScorecard: () => {
     return {
-      type: 'CALCULATING_SCORECARD'
+      type: 'CALCULATING_SCORECARD',
     };
   },
 
   calculatedScorecard: (scorecard) => {
     return {
       type: 'CALCULATED_SCORECARD',
-      payload: { scorecard }
+      payload: { scorecard },
     };
   },
 
   fetchingScorecard: () => {
     return {
-      type: 'FETCHING_SCORECARD'
+      type: 'FETCHING_SCORECARD',
     };
   },
 
   fetchedScorecard: (scorecard) => {
     return {
       type: 'FETCHED_SCORECARD',
-      payload: { scorecard }
+      payload: { scorecard },
     };
   },
 
   showSocialModal: () => {
     return {
-      type: 'SHOW_SOCIAL_MODAL'
+      type: 'SHOW_SOCIAL_MODAL',
     };
   },
 
   hideSocialModal: () => {
     return {
-      type: 'HIDE_SOCIAL_MODAL'
+      type: 'HIDE_SOCIAL_MODAL',
     };
   },
 
   errorFetching: (error) => {
     return {
       type: 'ERROR_FETCHING_SCORECARD',
-      payload: error
+      payload: error,
     };
   },
 
   errorCalculating: (error) => {
     return {
       type: 'ERROR_CALCULATING_SCORECARD',
-      payload: error
+      payload: error,
     };
   },
 
   resetAnalyzer: () => {
     return {
-      type: 'RESET_ANALYZER'
+      type: 'RESET_ANALYZER',
     };
-  }
+  },
 };
 
 exports.calculateScorecard = (options) => {
@@ -90,7 +90,7 @@ exports.calculateScorecard = (options) => {
 
             return callback(null, scorecardJson);
           });
-        }
+        },
       ],
       (error, results) => {
         if (error)

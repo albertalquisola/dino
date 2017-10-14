@@ -40,7 +40,7 @@ class AddSocialModal extends React.Component {
       const options = {
         accountName: account.name,
         companyId: this.props.companyId,
-        accountId: ''
+        accountId: '',
       };
 
       this.props.updateAccount(options);
@@ -245,7 +245,7 @@ AddSocialModal.propTypes = _.extend({}, socialAccountsPropTypes, {
     fetchedAccountDetails: React.PropTypes.bool,
     hasAccount: React.PropTypes.bool,
     noAccountFound: React.PropTypes.bool,
-    showSocialModal: React.PropTypes.bool
+    showSocialModal: React.PropTypes.bool,
   }).isRequired,
 
   open: React.PropTypes.bool,
@@ -255,13 +255,13 @@ AddSocialModal.propTypes = _.extend({}, socialAccountsPropTypes, {
   updateAccount: React.PropTypes.func.isRequired,
   companyId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
+    React.PropTypes.number,
   ]),
   domainName: React.PropTypes.string.isRequired,
   requestId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
-  ])
+    React.PropTypes.number,
+  ]),
 });
 
 module.exports = AddSocialModal;

@@ -65,13 +65,13 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
   requestId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
+    React.PropTypes.number,
   ]),
   companyId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
+    React.PropTypes.number,
   ]),
-  domainName: React.PropTypes.string
+  domainName: React.PropTypes.string,
 };
 
 module.exports = Navbar;

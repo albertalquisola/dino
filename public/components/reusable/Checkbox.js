@@ -7,7 +7,7 @@ class Checkbox extends React.Component {
     this.state = {
       competitorId: props.competitorId,
       checked: props.isChecked || false,
-      name: props.name
+      name: props.name,
     };
 
     this.registerCheckbox(this);
@@ -50,7 +50,7 @@ Checkbox.propTypes = {
   name: React.PropTypes.string.isRequired,
   trackCheckbox: React.PropTypes.func,
   isChecked: React.PropTypes.bool,
-  checkAction: React.PropTypes.func
+  checkAction: React.PropTypes.func,
 };
 
 module.exports = Checkbox;

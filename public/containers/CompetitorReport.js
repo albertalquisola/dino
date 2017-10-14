@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCompetitorReport: (competitorReportId) => {
       return dispatch(actions.competitorReport.getReport(competitorReportId));
-    }
+    },
   };
 };
 

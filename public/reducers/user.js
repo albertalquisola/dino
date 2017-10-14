@@ -6,14 +6,14 @@ const userReducer = (state = {}, action) => {
     case 'FETCHING_USER':
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
 
     case 'FETCHED_USER':
       return {
         ...state,
         ...action.payload.user,
-        isFetching: false
+        isFetching: false,
       };
 
     case 'POSTED_COMPANY':
@@ -21,7 +21,7 @@ const userReducer = (state = {}, action) => {
         ...state,
         currentAgency: action.payload.company,
         hasBetaAccess: action.payload.company.hasBetaAccess,
-        registrationComplete: true
+        registrationComplete: true,
       };
 
     default:

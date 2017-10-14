@@ -42,12 +42,12 @@ Analyzer.propTypes = {
     domainName: React.PropTypes.string,
     requestId: React.PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.number
+      React.PropTypes.number,
     ]),
     calculatingScorecard: React.PropTypes.bool,
     calculatedScorecard: React.PropTypes.bool,
-    error: React.PropTypes.object
-  }).isRequired
+    error: React.PropTypes.object,
+  }).isRequired,
 };
 
 module.exports = Analyzer;

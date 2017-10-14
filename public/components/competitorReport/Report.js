@@ -84,20 +84,20 @@ CompetitorReport.propTypes = {
     company: React.PropTypes.shape({
       companyId: React.PropTypes.oneOfType([
         React.PropTypes.string,
-        React.PropTypes.number
+        React.PropTypes.number,
       ]),
       requestId: React.PropTypes.oneOfType([
         React.PropTypes.string,
-        React.PropTypes.number
+        React.PropTypes.number,
       ]),
-      domainName: React.PropTypes.string.isRequired
+      domainName: React.PropTypes.string.isRequired,
     }),
-    competitors: React.PropTypes.array
+    competitors: React.PropTypes.array,
   }),
   getCompetitorReport: React.PropTypes.func.isRequired,
   params: React.PropTypes.shape({
-    competitorReportId: React.PropTypes.string.isRequired
-  }).isRequired
+    competitorReportId: React.PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 module.exports = CompetitorReport;

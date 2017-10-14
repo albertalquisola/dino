@@ -6,7 +6,7 @@ import AddCompetitorModal from 'components/modals/AddCompetitorModal';
 const mapStateToProps = (state) => {
   return {
     open: state.addCompetitor.showCompetitorModal,
-    competitor: state.addCompetitor
+    competitor: state.addCompetitor,
   };
 };
 
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
 
     hideCompetitorModal: () => {
       return dispatch(actions.addCompetitor.hideCompetitorModal());
-    }
+    },
   };
 };
 

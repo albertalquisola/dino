@@ -132,7 +132,7 @@ Social.propTypes = {
     domainName: React.PropTypes.string,
     companyId: React.PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.number
+      React.PropTypes.number,
     ]).isRequired,
 
     scores: React.PropTypes.shape({
@@ -147,7 +147,7 @@ Social.propTypes = {
 
     desktop: React.PropTypes.shape({
       base64Image: React.PropTypes.string,
-      formattedResults: React.PropTypes.object
+      formattedResults: React.PropTypes.object,
     }),
 
     mobile: React.PropTypes.shape({
@@ -163,10 +163,10 @@ Social.propTypes = {
       title: React.PropTypes.string.isRequired,
       accounts: React.PropTypes.shape({
         notConnected: React.PropTypes.array.isRequired,
-        connected: React.PropTypes.array.isRequired
-      })
-    })
-  }).isRequired
+        connected: React.PropTypes.array.isRequired,
+      }),
+    }),
+  }).isRequired,
 };
 
 module.exports = Social;

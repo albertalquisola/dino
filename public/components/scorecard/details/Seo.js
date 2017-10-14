@@ -119,23 +119,23 @@ Seo.propTypes = {
 
     desktop: React.PropTypes.shape({
       base64Image: React.PropTypes.string,
-      formattedResults: React.PropTypes.object
+      formattedResults: React.PropTypes.object,
     }),
 
     mobile: React.PropTypes.shape({
       base64Image: React.PropTypes.string,
-      formattedResults: React.PropTypes.object
+      formattedResults: React.PropTypes.object,
     }),
 
     seo: React.PropTypes.shape({
       title: React.PropTypes.string.isRequired,
-      metrics: React.PropTypes.object.isRequired
+      metrics: React.PropTypes.object.isRequired,
     }),
 
     social: React.PropTypes.shape({
 
-    })
-  }).isRequired
+    }),
+  }).isRequired,
 };
 
 module.exports = Seo;

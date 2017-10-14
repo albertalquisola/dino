@@ -1,0 +1,51 @@
+// import custom stag and bootstrap variables
+@import "bootstrap-sass/stylesheets/bootstrap/_variables.scss";
+
+// lib styles
+@import "../components/lib/headerbar/headerbar.scss";
+@import "../components/lib/searchbox/searchbox.scss";
+@import "../components/lib/buttons/shareRec/shareRecButton.scss";
+@import "../components/lib/buttons/go/goButton.scss";
+@import "../components/lib/buttons/login/loginButton.scss";
+
+// home styles
+@import "dino/home/home.scss";
+
+// adding to your list styles
+@import "dino/yourRecs/yourRecs.scss";
+
+//// main global app styles
+//@import "dino/app.scss";
+//
+//// patch for react-bootstrap-modal
+//@import "dino/rbm-patch.scss";
+//
+//// Top level page styles
+//@import "dino/404.scss";
+//@import "dino/errorPage.scss";
+//@import "dino/accessDenied.scss";
+//
+//// homepage styles
+//@import "dino/home/login.scss";
+//@import "dino/home/multCompanies.scss";
+//@import "dino/home/accessGranted.scss";
+//
+//// analyzer styles
+//@import "dino/analyzer/analyzer.scss";
+//@import "dino/analyzer/scorecardGateway.scss";
+//@import "dino/analyzer/loadingState.scss";
+//
+//// scorecard styles
+//@import "dino/scorecard/scorecard.scss";
+//@import "dino/scorecard/details.scss";
+//@import "dino/scorecard/social.scss";
+//
+//// modal styles
+//@import "dino/modals/addCompetitorModal.scss";
+//@import "dino/modals/addSocialAccount.scss";
+//
+//// competitors styles
+//@import "dino/competitors/competitors.scss";
+//
+//// competitor report styles
+//@import "dino/competitorReport/competitorReport.scss";

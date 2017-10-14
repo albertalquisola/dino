@@ -46,11 +46,11 @@ CCard.propTypes = {
   score: React.PropTypes.string.isRequired,
   requestId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
+    React.PropTypes.number,
   ]).isRequired,
   title: React.PropTypes.string.isRequired,
   subtextTop: React.PropTypes.string.isRequired,
-  subtextBottom: React.PropTypes.string.isRequired
+  subtextBottom: React.PropTypes.string.isRequired,
 };
 
 module.exports = CCard;

@@ -21,7 +21,7 @@ class AddCompetitorModal extends React.Component {
 
       const options = {
         companyId: this.props.companyId,
-        competitorId: this.props.competitor.companyId
+        competitorId: this.props.competitor.companyId,
       };
 
       this.props.addCompetitor(options);
@@ -115,14 +115,14 @@ AddCompetitorModal.propTypes = {
     domainName: React.PropTypes.string,
     companyId: React.PropTypes.number,
     desktop: React.PropTypes.shape({
-      base64Image: React.PropTypes.string
-    })
+      base64Image: React.PropTypes.string,
+    }),
   }),
 
   addCompetitorStats: React.PropTypes.func.isRequired,
   addCompetitor: React.PropTypes.func.isRequired,
   resetCompetitor: React.PropTypes.func.isRequired,
-  companyId: React.PropTypes.string.isRequired
+  companyId: React.PropTypes.string.isRequired,
 };
 
 module.exports = AddCompetitorModal;

@@ -22,8 +22,8 @@ class ViewScorecard extends React.Component {
 ViewScorecard.propTypes = {
   requestId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
-  ]).isRequired
+    React.PropTypes.number,
+  ]).isRequired,
 };
 
 module.exports = ViewScorecard;

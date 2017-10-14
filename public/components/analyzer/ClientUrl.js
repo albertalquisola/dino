@@ -48,8 +48,8 @@ class ClientUrl extends React.Component {
 ClientUrl.propTypes = {
   onClickScorecard: React.PropTypes.func.isRequired,
   error: React.PropTypes.shape({
-    message: React.PropTypes.string.isRequired
-  })
+    message: React.PropTypes.string.isRequired,
+  }),
 };
 
 module.exports = ClientUrl;

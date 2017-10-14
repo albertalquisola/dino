@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 class MultCompanies extends React.Component {
   render() {
-    let companies = _.map(this.props.companies, (company, index) => {
+    const companies = _.map(this.props.companies, (company, index) => {
       return (
         <div className="btn btn-black company-box"
           key={index}
@@ -34,7 +34,7 @@ class MultCompanies extends React.Component {
 
 MultCompanies.propTypes = {
   companies: React.PropTypes.array.isRequired,
-  onClickCompany: React.PropTypes.func.isRequired
+  onClickCompany: React.PropTypes.func.isRequired,
 };
 
 module.exports = MultCompanies;

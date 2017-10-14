@@ -41,12 +41,12 @@ class BackBtn extends React.Component {
 }
 
 BackBtn.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: React.PropTypes.object.isRequired,
 };
 
 BackBtn.propTypes = {
   onClick: React.PropTypes.func,
-  path: React.PropTypes.string
+  path: React.PropTypes.string,
 };
 
 module.exports = BackBtn;

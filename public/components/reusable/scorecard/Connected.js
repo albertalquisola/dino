@@ -32,7 +32,7 @@ Connected.propTypes = {
   domainName: React.PropTypes.string.isRequired,
   friendlyName: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
-  metrics: React.PropTypes.array
+  metrics: React.PropTypes.array,
 };
 
 module.exports = Connected;

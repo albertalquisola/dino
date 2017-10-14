@@ -88,10 +88,10 @@ Details.propTypes = _.extend({}, scorecardPropTypes, {
   params: React.PropTypes.shape({
   requestId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
+    React.PropTypes.number,
   ]).isRequired,
-    category: React.PropTypes.string.isRequired
-  }).isRequired
+    category: React.PropTypes.string.isRequired,
+  }).isRequired,
 });
 
 module.exports = Details;

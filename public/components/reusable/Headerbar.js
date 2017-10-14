@@ -21,7 +21,7 @@ class Headerbar extends React.Component {
 }
 
 Headerbar.propTypes = {
-  resetAnalyzer: React.PropTypes.func
+  resetAnalyzer: React.PropTypes.func,
 };
 
 module.exports = Headerbar;

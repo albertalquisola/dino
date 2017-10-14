@@ -33,7 +33,7 @@ class App extends React.Component {
 }
 
 App.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: React.PropTypes.object.isRequired,
 };
 
 App.propTypes = {
@@ -53,18 +53,18 @@ App.propTypes = {
     currentAgency: React.PropTypes.shape({
       agency_id: React.PropTypes.number,
       linkedin_id: React.PropTypes.string,
-      name: React.PropTypes.string
+      name: React.PropTypes.string,
     }),
 
     name: React.PropTypes.shape({
       familyName: React.PropTypes.string,
-      givenName: React.PropTypes.string
+      givenName: React.PropTypes.string,
     }),
   }),
   location: React.PropTypes.shape({
-    pathname: React.PropTypes.string.isRequired
+    pathname: React.PropTypes.string.isRequired,
   }).isRequired,
-  children: React.PropTypes.node.isRequired
+  children: React.PropTypes.node.isRequired,
 };
 
 module.exports = App;

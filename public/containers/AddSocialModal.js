@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     socialAccounts: state.socialAccounts,
     addSocialAccount: state.addSocialAccount,
     accountToShow: state.addSocialAccount.accountToShow,
-    open: state.addSocialAccount.showSocialModal
+    open: state.addSocialAccount.showSocialModal,
   };
 };
 
@@ -46,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
 
     updateAccount: (options) => {
       return dispatch(actions.addSocialAccount.updateAccount(options));
-    }
+    },
   };
 };
 

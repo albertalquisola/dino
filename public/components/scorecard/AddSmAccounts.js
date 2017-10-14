@@ -17,7 +17,7 @@ class AddSmAccounts extends React.Component {
         accountName: account.name,
         companyId: this.props.scorecard.companyId,
         requestId: this.props.params.requestId,
-        accountId: 0
+        accountId: 0,
       };
 
       this.props.updateAccount(options);
@@ -136,9 +136,9 @@ AddSmAccounts.propTypes = _.extend({}, scorecardPropTypes, {
   params: React.PropTypes.shape({
     requestId: React.PropTypes.oneOfType([
   React.PropTypes.string,
-  React.PropTypes.number
-]).isRequired
-  }).isRequired
+  React.PropTypes.number,
+]).isRequired,
+  }).isRequired,
 });
 
 module.exports = AddSmAccounts;

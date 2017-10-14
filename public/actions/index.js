@@ -6,5 +6,5 @@ module.exports = {
   competitorReport: require('./competitorReport'),
   scorecard: require('./scorecard'),
   socialAccounts: require('./socialAccounts'),
-  user: require('./user')
+  user: require('./user'),
 };

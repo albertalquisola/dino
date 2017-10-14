@@ -16,6 +16,7 @@ import { Strategy as FacebookStrategy } from 'passport-facebook';
 
 import config from 'config';
 import controllers from 'controllers';
+import coordinators from 'coordinators';
 import errorHandler from 'util/errorHandler';
 import mw from 'middleware';
 import routes from 'routes';
@@ -64,7 +65,7 @@ passport.use(new FacebookStrategy({
   clientSecret: process.env.FACEBOOK_SECRET,
   callbackURL: 'http://localhost:3000/auth/facebook/callback',
   passReqToCallback: true,
-}, controllers.user.facebookSignup,
+}, coordinators.auth.facebookSignup,
 ));
 
 passport.serializeUser((id, callback) => {
@@ -72,7 +73,8 @@ passport.serializeUser((id, callback) => {
 });
 
 passport.deserializeUser((id, callback) => {
-  controllers.user.getUserById(id, (err, user) => callback(err, user));
+  callback(null, { id });
+  // controllers.user.getUserById(id, (err, user) => callback(err, user));
 });
 
 // configure our routes

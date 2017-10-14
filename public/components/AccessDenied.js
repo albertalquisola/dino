@@ -71,7 +71,7 @@ class AccessDenied extends React.Component {
 }
 
 AccessDenied.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: React.PropTypes.object.isRequired,
 };
 
 AccessDenied.propTypes = {
@@ -91,14 +91,14 @@ AccessDenied.propTypes = {
     currentAgency: React.PropTypes.shape({
       agency_id: React.PropTypes.number,
       linkedin_id: React.PropTypes.string,
-      name: React.PropTypes.string
+      name: React.PropTypes.string,
     }),
 
     name: React.PropTypes.shape({
       familyName: React.PropTypes.string,
-      givenName: React.PropTypes.string
-    })
-  })
+      givenName: React.PropTypes.string,
+    }),
+  }),
 };
 
 module.exports = AccessDenied;

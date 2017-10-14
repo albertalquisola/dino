@@ -23,7 +23,7 @@ class Spinner extends React.Component {
 }
 
 Spinner.propTypes = {
-  text: React.PropTypes.string
+  text: React.PropTypes.string,
 };
 
 module.exports = Spinner;

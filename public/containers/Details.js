@@ -7,7 +7,7 @@ import Details from 'components/scorecard/details/Details';
 const mapStateToProps = (state) => {
   return {
     scorecard: state.scorecard,
-    socialAccounts: state.socialAccounts
+    socialAccounts: state.socialAccounts,
   };
 };
 
@@ -66,7 +66,7 @@ const mapDispatchToProps = (dispatch) => {
       }
 
       return gradeColor;
-    }
+    },
   };
 };
 

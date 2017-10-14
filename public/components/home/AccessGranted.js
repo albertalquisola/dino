@@ -11,18 +11,18 @@ class AccessGranted extends React.Component {
       {
         klassName: 'agency-health-check-link',
         name: 'agency health check',
-        link: 'H_icon.png'
+        link: 'H_icon.png',
       },
       {
         klassName: 'budgeting-and-planning-link',
         name: 'budgeting and planning',
-        link: 'B_icon.png'
+        link: 'B_icon.png',
       },
       {
         klassName: 'reporting-and-analytics-link',
         name: 'reporting and analytics',
-        link: 'R_icon.png'
-      }
+        link: 'R_icon.png',
+      },
     ];
 
     icons.push(
@@ -92,7 +92,7 @@ AccessGranted.propTypes = {
   newUser: React.PropTypes.number,
   agencyName: React.PropTypes.string.isRequired,
   onClickEnter: React.PropTypes.func.isRequired,
-  firstName: React.PropTypes.string.isRequired
+  firstName: React.PropTypes.string.isRequired,
 };
 
 module.exports = AccessGranted;

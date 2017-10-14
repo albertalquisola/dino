@@ -9,13 +9,13 @@ const addCompetitorReducer = (state = {}, action) => {
     case 'RESET_COMPETITOR_REPORT':
       return {
         ...state,
-        postedCompetitorReport: false
+        postedCompetitorReport: false,
       };
 
     case 'POSTING_COMPETITOR_REPORT':
       return {
         ...state,
-        postingCompetitorReport: true
+        postingCompetitorReport: true,
       };
 
     case 'POSTED_COMPETITOR_REPORT':
@@ -23,27 +23,27 @@ const addCompetitorReducer = (state = {}, action) => {
         ...state,
         postingCompetitorReport: false,
         postedCompetitorReport: true,
-        reportId: action.payload
+        reportId: action.payload,
       };
 
     case 'NO_COMPETITORS_SELECTED':
       return {
         ...state,
-        noCompetitorsSelected: true
+        noCompetitorsSelected: true,
       };
 
     case 'COMPETITOR_REPORT_ERROR':
       return {
         ...state,
         postingCompetitorReport: false,
-        error: action.payload
+        error: action.payload,
       };
 
     case 'COMPETITOR_ERROR':
       return {
         ...state,
         fetchingCompetitors: false,
-        error: action.payload
+        error: action.payload,
       };
 
     default:

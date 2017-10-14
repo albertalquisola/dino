@@ -5,7 +5,7 @@ import Analyzer from 'components/analyzer/Analyzer';
 
 const mapStateToProps = (state) => {
   return {
-    scorecard: state.scorecard
+    scorecard: state.scorecard,
   };
 };
 
@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => {
       options.url ?
         dispatch(actions.scorecard.calculateScorecard(options)) :
         dispatch(actions.scorecard.invalidUrl(options));
-    }
+    },
   };
 };
 

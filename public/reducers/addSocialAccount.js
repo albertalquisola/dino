@@ -4,7 +4,7 @@ const addSocialAccountReducer = (state = {}, action) => {
     case 'ADD_ANOTHER_ACCOUNT':
       return {
         ...state,
-        updatedAccount: false
+        updatedAccount: false,
       };
 
     case 'BACK_TO_NO_ACCOUNT':
@@ -13,7 +13,7 @@ const addSocialAccountReducer = (state = {}, action) => {
         hasAccount: false,
         fetchedAccountDetails: false,
         noAccountFound: false,
-        invalidAccountId: false
+        invalidAccountId: false,
       };
 
     case 'HAS_ACCOUNT':
@@ -23,7 +23,7 @@ const addSocialAccountReducer = (state = {}, action) => {
         fetchedAccountDetails: false,
         noAccountFound: false,
         invalidAccountId: false,
-        account: action.payload
+        account: action.payload,
       };
 
     case 'FETCHED_ACCOUNT_DETAILS':
@@ -42,19 +42,19 @@ const addSocialAccountReducer = (state = {}, action) => {
         updatedAccount: true,
         hasAccount: false,
         fetchedAccountDetails: false,
-        noAccountFound: false
+        noAccountFound: false,
       };
 
     case 'SHOW_SOCIAL_MODAL':
       return {
         ...state,
         showSocialModal: true,
-        accountToShow: action.payload
+        accountToShow: action.payload,
       };
 
     case 'HIDE_SOCIAL_MODAL':
       return {
-        showSocialModal: false
+        showSocialModal: false,
       };
 
     case 'INVALID_ACCOUNT_ID':
@@ -63,7 +63,7 @@ const addSocialAccountReducer = (state = {}, action) => {
         hasAccount: true,
         fetchedAccountDetails: false,
         noAccountFound: false,
-        invalidAccountId: true
+        invalidAccountId: true,
       };
 
     case 'ERROR_FETCHING_ACCOUNT_DETAILS':
@@ -71,7 +71,7 @@ const addSocialAccountReducer = (state = {}, action) => {
         ...state,
         hasAccount: true,
         fetchedAccountDetails: false,
-        noAccountFound: true
+        noAccountFound: true,
       };
 
     default:

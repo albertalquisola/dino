@@ -6,19 +6,19 @@ import alexaPropTypes from 'propTypes/alexa';
 class Map extends React.Component {
   render() {
     let countries = [];
-    let rows = [];
+    const rows = [];
 
     const columns = [{
       type: 'string',
-      label: 'Country'
+      label: 'Country',
     },
     {
       type: 'number',
-      label: 'Contribution'
+      label: 'Contribution',
     },
     {
       type: 'string',
-      role: 'tooltip'
+      role: 'tooltip',
     }];
 
     const options = {
@@ -26,15 +26,15 @@ class Map extends React.Component {
       legend: 'none',
       backgroundColor: '#FBF8F2',
       colorAxis: {
-        colors: ['FCF8F2', '#FAAF40']
+        colors: ['FCF8F2', '#FAAF40'],
       },
       defaultColor: '#FCF8F2',
       tooltip: {
         textStyle: {
           color: '#737373',
-          fontName: 'Cinzel'
-        }
-      }
+          fontName: 'Cinzel',
+        },
+      },
     };
 
     if (this.props.alexa && this.props.alexa.countries)

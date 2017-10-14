@@ -28,7 +28,7 @@ SeoSection.propTypes = {
   metrics: React.PropTypes.array.isRequired,
   sectionName: React.PropTypes.string.isRequired,
   sectionColor: React.PropTypes.string.isRequired,
-  friendlyName: React.PropTypes.string.isRequired
+  friendlyName: React.PropTypes.string.isRequired,
 };
 
 module.exports = SeoSection;

@@ -1,7 +1,7 @@
 const path = require('path');
 
 const webpackConfig = {
-  entry: path.resolve(__dirname, './public/main'),
+  entry: ['babel-polyfill', path.resolve(__dirname, './public/main')],
 
   output: {
     path: path.resolve(__dirname, './public'),

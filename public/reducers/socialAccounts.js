@@ -3,7 +3,7 @@ const socialAccountsReducer = (state = {}, action) => {
     case 'FETCHING_SOCIAL_ACCOUNTS':
       return {
         ...state,
-        fetchingAccounts: true
+        fetchingAccounts: true,
       };
 
     case 'FETCHED_SOCIAL_ACCOUNTS':
@@ -11,7 +11,7 @@ const socialAccountsReducer = (state = {}, action) => {
         ...state,
         fetchingAccounts: false,
         fetchedAccounts: true,
-        ...action.payload
+        ...action.payload,
       };
 
     default:

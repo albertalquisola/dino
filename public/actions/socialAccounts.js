@@ -3,23 +3,23 @@ import fetcher from 'util/fetcher';
 const SOCIAL_ACTIONS = {
   fetchingSocialAccounts: () => {
     return {
-      type: 'FETCHING_SOCIAL_ACCOUNTS'
+      type: 'FETCHING_SOCIAL_ACCOUNTS',
     };
   },
 
   fetchedSocialAccounts: (socialAccounts) => {
     return {
       type: 'FETCHED_SOCIAL_ACCOUNTS',
-      payload: socialAccounts
+      payload: socialAccounts,
     };
   },
 
   socialAccountsError: (error) => {
     return {
       type: 'SOCIAL_ACCOUNTS_ERROR',
-      error
+      error,
     };
-  }
+  },
 };
 
 exports.fetchSocialAccounts = (options) => {

@@ -86,11 +86,11 @@ class Scores extends React.Component {
       shieldColor = 'green';
 
     _.forOwn(this.props.scorecard.scores, (value, category) => {
-      let ogScore = this.props.scorecard.scores[category];
+      const ogScore = this.props.scorecard.scores[category];
       let score = this.props.scorecard.scores[category];
-      let title = this.props.scorecard[category].title;
-      let subtextTop = this.props.scorecard[category].subtextTop;
-      let subtextBottom = this.props.scorecard[category].subtextBottom;
+      const title = this.props.scorecard[category].title;
+      const subtextTop = this.props.scorecard[category].subtextTop;
+      const subtextBottom = this.props.scorecard[category].subtextBottom;
 
       score = score[0].toLowerCase();
 
@@ -216,16 +216,16 @@ class Scores extends React.Component {
 }
 
 Scores.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: React.PropTypes.object.isRequired,
 };
 
 Scores.propTypes = _.extend({}, scorecardPropTypes, {
   resetAnalyzer: React.PropTypes.func.isRequired,
   requestId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number
+    React.PropTypes.number,
   ]).isRequired,
-  showSocialModal: React.PropTypes.func.isRequired
+  showSocialModal: React.PropTypes.func.isRequired,
 });
 
 module.exports = Scores;

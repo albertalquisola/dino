@@ -239,19 +239,19 @@ CompanyColumn.propTypes = {
   company: React.PropTypes.shape({
     companyId: React.PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.number
+      React.PropTypes.number,
     ]),
     requestId: React.PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.number
+      React.PropTypes.number,
     ]).isRequired,
     domainName: React.PropTypes.string.isRequired,
     seo: React.PropTypes.object.isRequired,
     social: React.PropTypes.object.isRequired,
     mobile: React.PropTypes.object.isRequired,
-    desktop: React.PropTypes.object.isRequired
+    desktop: React.PropTypes.object.isRequired,
   }).isRequired,
-  isMain: React.PropTypes.bool
+  isMain: React.PropTypes.bool,
 };
 
 module.exports = CompanyColumn;

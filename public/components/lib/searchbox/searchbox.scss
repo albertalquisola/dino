@@ -1,0 +1,16 @@
+.searchbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #PlacesAutocomplete__root {
+    width: 400px;
+  }
+  .hidden-places-mount {
+    visibility: hidden;
+  }
+
+  .go-button {
+    margin-left: 15px;
+  }
+}

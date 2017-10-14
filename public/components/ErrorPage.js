@@ -23,8 +23,8 @@ class ErrorPage extends React.Component {
 
 ErrorPage.propTypes = {
   history: React.PropTypes.shape({
-    goBack: React.PropTypes.func.isRequired
-  }).isRequired
+    goBack: React.PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 module.exports = ErrorPage;

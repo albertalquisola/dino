@@ -4,7 +4,7 @@ const addCompetitorsReducer = (state = {}, action) => {
       return {
         ...state,
         fetchingCompetitor: true,
-        errorFetchingCompetitor: false
+        errorFetchingCompetitor: false,
       };
 
     case 'FETCHED_COMPETITOR':
@@ -12,34 +12,34 @@ const addCompetitorsReducer = (state = {}, action) => {
         ...state,
         fetchingCompetitor: false,
         fetchedCompetitor: true,
-        ...action.payload
+        ...action.payload,
       };
 
     case 'SHOW_COMPETITOR_MODAL':
       return {
         ...state,
-        showCompetitorModal: true
+        showCompetitorModal: true,
       };
 
     case 'HIDE_COMPETITOR_MODAL':
       return {
-        showCompetitorModal: false
+        showCompetitorModal: false,
       };
 
     case 'ADDING_COMPETITOR':
       return {
         ...state,
-        addingCompetitor: true
+        addingCompetitor: true,
       };
 
     case 'ADDED_COMPETITOR':
       return {
-        showCompetitorModal: false
+        showCompetitorModal: false,
       };
 
     case 'RESET_COMPETITOR':
       return {
-        showCompetitorModal: true
+        showCompetitorModal: true,
       };
 
     case 'FETCH_COMPETITOR_ERROR':
@@ -47,13 +47,13 @@ const addCompetitorsReducer = (state = {}, action) => {
         ...state,
         fetchingCompetitor: false,
         fetchedCompetitor: false,
-        errorFetchingCompetitor: true
+        errorFetchingCompetitor: true,
       };
 
     case 'ADD_COMPETITOR_ERROR':
       return {
         ...state,
-        error: true
+        error: true,
       };
 
     default:

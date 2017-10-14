@@ -6,7 +6,7 @@ import Competitors from 'components/competitors/Competitors';
 const mapStateToProps = (state) => {
   return {
     ...state.company,
-    ...state.competitors
+    ...state.competitors,
   };
 };
 
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
 
     showCompetitorModal: () => {
       return dispatch(actions.addCompetitor.showCompetitorModal());
-    }
+    },
   };
 };
 

@@ -4,7 +4,7 @@ import Scorecard from 'components/scorecard/Scorecard';
 
 const mapStateToProps = (state) => {
   return {
-    scorecard: state.scorecard
+    scorecard: state.scorecard,
   };
 };
 
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 
     showSocialModal: () => {
       return dispatch(actions.addSocialAccount.showSocialModal());
-    }
+    },
   };
 };
 

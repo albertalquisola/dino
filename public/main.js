@@ -15,9 +15,10 @@ import store from 'reduxStore';
 
 import AuthGateway from 'containers/AuthGateway';
 import HomeContainer from 'containers/Home';
+import YourRecsContainer from 'containers/YourRecs';
 
 import 'scss/bootstrap-sass/stylesheets/_bootstrap.scss';
-import 'scss/stag.scss';
+import 'scss/dino.scss';
 
 // global convenience helpers
 window.$ = require('jquery');
@@ -27,11 +28,15 @@ const routes = (
   <Route>
     <Route path="/" component={AuthGateway}>
       <IndexRoute component={HomeContainer} />
+        <Route path="/your-recs" component={YourRecsContainer} />
     </Route>
   </Route>
 );
 
 const history = syncHistoryWithStore(browserHistory, store);
+
+// make store globally accessible
+window.store = store;
 
 render(
   <Provider store={store}>

@@ -4,7 +4,7 @@ const scorecardReducer = (state = {}, action) => {
       return {
         ...state,
         calculatingScorecard: true,
-        error: null
+        error: null,
       };
 
     case 'CALCULATED_SCORECARD':
@@ -12,7 +12,7 @@ const scorecardReducer = (state = {}, action) => {
         ...state,
         ...action.payload.scorecard,
         calculatingScorecard: false,
-        calculatedScorecard: true
+        calculatedScorecard: true,
       };
 
     case 'FETCHED_SCORECARD':
@@ -20,7 +20,7 @@ const scorecardReducer = (state = {}, action) => {
         ...state,
         ...action.payload.scorecard,
         fetchingScorecard: false,
-        fetchedScorecard: true
+        fetchedScorecard: true,
       };
 
     case 'ERROR_CALCULATING_SCORECARD':
@@ -28,7 +28,7 @@ const scorecardReducer = (state = {}, action) => {
         ...state,
         calculatingScorecard: false,
         calculatedScorecard: false,
-        error: action.payload
+        error: action.payload,
       };
 
     case 'RESET_ANALYZER':

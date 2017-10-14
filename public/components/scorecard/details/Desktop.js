@@ -158,7 +158,7 @@ Desktop.propTypes = {
     mobile: React.PropTypes.shape({
       base64Image: React.PropTypes.string.isRequired,
       formattedResults: React.PropTypes.object.isRequired,
-      title: React.PropTypes.string.isRequired
+      title: React.PropTypes.string.isRequired,
     }),
 
     desktop: React.PropTypes.shape({
@@ -168,8 +168,8 @@ Desktop.propTypes = {
       rules: React.PropTypes.shape({
         mustFix: React.PropTypes.array.isRequired,
         shouldFix: React.PropTypes.array.isRequired,
-        onTarget: React.PropTypes.array.isRequired
-      }).isRequired
+        onTarget: React.PropTypes.array.isRequired,
+      }).isRequired,
     }),
 
     seo: React.PropTypes.shape({
@@ -178,8 +178,8 @@ Desktop.propTypes = {
 
     social: React.PropTypes.shape({
 
-    })
-  }).isRequired
+    }),
+  }).isRequired,
 };
 
 module.exports = Desktop;

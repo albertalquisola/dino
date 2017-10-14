@@ -12,7 +12,7 @@ module.exports = {
     domainName: React.PropTypes.string,
     requestId: React.PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.number
+      React.PropTypes.number,
     ]),
     companyId: React.PropTypes.number,
 
@@ -30,7 +30,7 @@ module.exports = {
       rules: React.PropTypes.shape({
         mustFix: React.PropTypes.array.isRequired,
         shouldFix: React.PropTypes.array.isRequired,
-        onTarget: React.PropTypes.array.isRequired
+        onTarget: React.PropTypes.array.isRequired,
       }).isRequired,
     }),
 
@@ -45,7 +45,7 @@ module.exports = {
       rules: React.PropTypes.shape({
         mustFix: React.PropTypes.array.isRequired,
         shouldFix: React.PropTypes.array.isRequired,
-        onTarget: React.PropTypes.array.isRequired
+        onTarget: React.PropTypes.array.isRequired,
       }).isRequired,
     }),
 
@@ -54,24 +54,24 @@ module.exports = {
         links: React.PropTypes.shape({
           color: React.PropTypes.string.isRequired,
           friendlyName: React.PropTypes.string.isRequired,
-          metrics: React.PropTypes.array.isRequired
+          metrics: React.PropTypes.array.isRequired,
         }),
         search: React.PropTypes.shape({
           color: React.PropTypes.string.isRequired,
           friendlyName: React.PropTypes.string.isRequired,
-          metrics: React.PropTypes.array.isRequired
+          metrics: React.PropTypes.array.isRequired,
         }),
         structure: React.PropTypes.shape({
           color: React.PropTypes.string.isRequired,
           friendlyName: React.PropTypes.string.isRequired,
-          metrics: React.PropTypes.array.isRequired
+          metrics: React.PropTypes.array.isRequired,
         }),
         security: React.PropTypes.shape({
           color: React.PropTypes.string.isRequired,
           friendlyName: React.PropTypes.string.isRequired,
-          metrics: React.PropTypes.array.isRequired
-        })
-      })
+          metrics: React.PropTypes.array.isRequired,
+        }),
+      }),
     }),
 
     social: React.PropTypes.shape({
@@ -79,7 +79,7 @@ module.exports = {
       title: React.PropTypes.string.isRequired,
       score: React.PropTypes.string.isRequired,
       subtextTop: React.PropTypes.string.isRequired,
-      subtextBottom: React.PropTypes.string.isRequired
-    })
-  }).isRequired
+      subtextBottom: React.PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 };

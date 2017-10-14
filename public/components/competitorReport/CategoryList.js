@@ -193,7 +193,7 @@ class CategoryList extends React.Component {
 }
 
 CategoryList.propTypes = {
-  company: React.PropTypes.object.isRequired
+  company: React.PropTypes.object.isRequired,
 };
 
 module.exports = CategoryList;

@@ -4,7 +4,7 @@ const companyReducer = (state = {}, action) => {
       return {
         ...state,
         fetchingCompany: true,
-        fetchedCompany: false
+        fetchedCompany: false,
       };
 
     case 'FETCHED_COMPANY':
@@ -12,7 +12,7 @@ const companyReducer = (state = {}, action) => {
         ...state,
         ...action.payload,
         fetchingCompany: false,
-        fetchedCompany: true
+        fetchedCompany: true,
       };
 
     case 'ERROR_FETCHING_COMPANY':
@@ -20,21 +20,21 @@ const companyReducer = (state = {}, action) => {
         ...state,
         fetchingCompany: false,
         fetchedCompany: false,
-        error: action.error
+        error: action.error,
       };
 
     case 'POSTING_COMPANY':
       return {
         ...state,
         postingCompany: true,
-        postedCompany: false
+        postedCompany: false,
       };
 
     case 'POSTED_COMPANY':
       return {
         ...state,
         postingCompany: false,
-        postedCompany: true
+        postedCompany: true,
       };
 
     case 'ERROR_POSTING_COMPANY':
@@ -42,7 +42,7 @@ const companyReducer = (state = {}, action) => {
         ...state,
         postingCompany: false,
         postedCompany: false,
-        error: action.error
+        error: action.error,
       };
 
     default:

@@ -7,59 +7,59 @@ import fetcher from 'util/fetcher';
 const ADD_COMPETITOR_ACTIONS = {
   resetCompetitor: () => {
     return {
-      type: 'RESET_COMPETITOR'
+      type: 'RESET_COMPETITOR',
     };
   },
 
   fetchingCompetitor: () => {
     return {
-      type: 'FETCHING_COMPETITOR'
+      type: 'FETCHING_COMPETITOR',
     };
   },
 
   fetchedCompetitor: (competitor) => {
     return {
       type: 'FETCHED_COMPETITOR',
-      payload: competitor
+      payload: competitor,
     };
   },
 
   addingCompetitor: () => {
     return {
-      type: 'ADDING_COMPETITOR'
+      type: 'ADDING_COMPETITOR',
     };
   },
 
   addedCompetitor: () => {
     return {
-      type: 'ADDED_COMPETITOR'
+      type: 'ADDED_COMPETITOR',
     };
   },
 
   showCompetitorModal: () => {
     return {
-      type: 'SHOW_COMPETITOR_MODAL'
+      type: 'SHOW_COMPETITOR_MODAL',
     };
   },
 
   hideCompetitorModal: () => {
     return {
-      type: 'HIDE_COMPETITOR_MODAL'
+      type: 'HIDE_COMPETITOR_MODAL',
     };
   },
 
   errorFetchingCompetitor: (error) => {
     return {
       type: 'FETCH_COMPETITOR_ERROR',
-      error
+      error,
     };
   },
 
   competitorError: () => {
     return {
-      type: 'ADD_COMPETITOR_ERROR'
+      type: 'ADD_COMPETITOR_ERROR',
     };
-  }
+  },
 };
 
 /*
@@ -101,7 +101,7 @@ exports.addCompetitorStats = (options) => {
 
           return callback(null, scorecardJson);
         });
-      }
+      },
     ],
     (error, competitor) => {
       if (error)

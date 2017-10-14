@@ -5,34 +5,12 @@ function checkStatusCode(response) {
   if (response.status >= 200 && response.status < 300)
     return response;
 
-  const error = new Error(response.statusCodeText);
-  response.error = error;
-
+  response.error = new Error(response.statusCodeText);
   return response;
 }
 
 function parseJson(response) {
   return response.json();
-}
-
-function callOptionalCallback(callback) {
-  return (json) => {
-    let data = _.cloneDeep(json);
-
-    if (typeof json === 'string') {
-      try {
-        data = JSON.parse(json);
-
-      } catch (e) {
-        data = { error: new Error('error parsing JSON response!') };
-      }
-    }
-
-    if (callback)
-      return callback(data);
-
-    return data;
-  };
 }
 
 /*
@@ -41,23 +19,22 @@ function callOptionalCallback(callback) {
  *
  */
 const fetcher = {
-  get: (url, callback) => {
+  get: (url) => {
     return fetch(url, {
       credentials: 'same-origin',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      }
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     })
     .then(checkStatusCode)
-    .then(parseJson)
-    .then(callOptionalCallback(callback));
+    .then(parseJson);
   },
 
-  post: (url, data, callback) => {
-    if (typeof data === 'function') {
-      callback = data;
+  post: (url, data) => {
+    if (!data) {
+      console.warn('trying to send a post request with no data!');
       data = {};
     }
 
@@ -67,18 +44,17 @@ const fetcher = {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'X-Requested-With': 'XMLHttpRequest',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
     .then(checkStatusCode)
-    .then(parseJson)
-    .then(callOptionalCallback(callback));
+    .then(parseJson);
   },
 
-  patch: (url, data, callback) => {
-    if (typeof data === 'function') {
-      callback = data;
+  patch: (url, data) => {
+    if (!data) {
+      console.warn('trying to send a patch request with no data!');
       data = {};
     }
 
@@ -88,14 +64,13 @@ const fetcher = {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'X-Requested-With': 'XMLHttpRequest',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
     .then(checkStatusCode)
-    .then(parseJson)
-    .then(callOptionalCallback(callback));
-  }
+    .then(parseJson);
+  },
 };
 
 export default fetcher;
