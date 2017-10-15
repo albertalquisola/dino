@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Headerbar from 'components/lib/headerbar/Headerbar';
-import Searchbox from 'components/lib/searchbox/Searchbox';
+import CitySearchbox from 'components/lib/searchbox/CitySearchbox';
 import LoginModal from 'components/modals/LoginModal';
 
 export default class Home extends React.Component {
@@ -12,7 +12,7 @@ export default class Home extends React.Component {
         <Headerbar />
         <div className="balloons-bg">
           <div className="search-prompt">Search for Recommendations</div>
-          <Searchbox onSearch={() => { console.log('temporary'); }} />
+          <CitySearchbox />
         </div>
         <LoginModal />
       </div>
@@ -21,4 +21,3 @@ export default class Home extends React.Component {
 }
 
 Home.propTypes = {};
-

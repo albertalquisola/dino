@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap-modal';
 import { connect } from 'react-redux';
 
+import { hideLoginModal } from 'actions/loginModal';
 import FacebookLogin from 'components/lib/FacebookLogin';
 
 class LoginModal extends React.Component {
@@ -15,7 +16,7 @@ class LoginModal extends React.Component {
     return (
       <Modal className="login-modal"
              show={this.props.show}
-             onHide={() => console.log('need to hide!')}>
+             onHide={this.props.hideModal}>
 
         <Modal.Header closeButton>
         </Modal.Header>
@@ -30,7 +31,7 @@ class LoginModal extends React.Component {
 
 LoginModal.propTypes = {
   show: React.PropTypes.bool.isRequired,
-  hideCompetitorModal: React.PropTypes.func,
+  hideModal: React.PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -41,7 +42,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    hideModal: () => dispatch(hideLoginModal()),
   };
 };
 

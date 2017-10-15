@@ -14,6 +14,7 @@ import Redis from 'ioredis';
 import { Strategy } from 'passport-local';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 
+import { getUserById } from 'services/user';
 import config from 'config';
 import controllers from 'controllers';
 import coordinators from 'coordinators';
@@ -72,9 +73,14 @@ passport.serializeUser((id, callback) => {
   callback(null, id);
 });
 
-passport.deserializeUser((id, callback) => {
-  callback(null, { id });
-  // controllers.user.getUserById(id, (err, user) => callback(err, user));
+passport.deserializeUser(async (id, callback) => {
+  try {
+    const user = await getUserById(id);
+    return callback(null, user);
+
+  } catch (error) {
+    return callback(error);
+  }
 });
 
 // configure our routes

@@ -6,9 +6,10 @@
   "main": "app.js",
   "scripts": {
     "start": " source ./env/production && source ./env/secrets && node app.js",
-    "dev-start": "source ./env/development && source ./env/dev-secrets && nodemon --inspect=localhost:9229 app.js",
+    "webstorm-start": "source ./env/development && source ./env/dev-secrets && node app.js",
+    "dev-start": "source ./env/development && source ./env/dev-secrets && nodemon --ignore 'logs/*.json' --inspect=localhost:9229 app.js",
     "lint": "eslint . --config eslintrc.json --ext .js --ignore-path .gitignore --cache; exit 0",
-    "lint:fix": "eslint . --config eslintrc.json --ext .js --ignore-path .gitignore --cache --fix; exit 0"
+    "lint:fix": "eslint . --config eslintrc.json -ext .js --ignore-path .gitignore --cache --fix; exit 0"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,9 @@
     "presets": [
       "env",
       "react"
+    ],
+    "plugins": [
+      "transform-es2015-destructuring"
     ]
   },
   "dependencies": {
@@ -79,6 +83,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
@@ -95,6 +100,7 @@
     "file-loader": "^0.9.0",
     "imports-loader": "^0.6.5",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.12.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.2",

@@ -4,6 +4,7 @@
  *
  * Copyright (c) 2017
  */
+import _ from 'lodash';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -11,36 +12,41 @@ import { Router, Route, IndexRoute, browserHistory, applyRouterMiddleware } from
 import { useScroll } from 'react-router-scroll';
 import { syncHistoryWithStore } from 'react-router-redux';
 
+import actions from 'actions';
 import store from 'reduxStore';
 
+import Home from 'components/home/Home';
+import YourRecs from 'components/yourRecs/YourRecs';
+
 import AuthGateway from 'containers/AuthGateway';
-import HomeContainer from 'containers/Home';
-import YourRecsContainer from 'containers/YourRecs';
 
 import 'scss/bootstrap-sass/stylesheets/_bootstrap.scss';
 import 'scss/dino.scss';
 
 // global convenience helpers
-window.$ = require('jquery');
-window._ = require('lodash');
-
-const routes = (
-  <Route>
-    <Route path="/" component={AuthGateway}>
-      <IndexRoute component={HomeContainer} />
-        <Route path="/your-recs" component={YourRecsContainer} />
-    </Route>
-  </Route>
-);
-
-const history = syncHistoryWithStore(browserHistory, store);
-
-// make store globally accessible
+window._ = _;
 window.store = store;
 
-render(
-  <Provider store={store}>
-    <Router routes={routes} render={applyRouterMiddleware(useScroll())} history={history} />
-  </Provider>,
-  document.getElementById('mount')
-);
+async function init() {
+  const user = await store.dispatch(actions.user.fetchUser());
+
+  const routes = (
+    <Route>
+      <Route path="/" component={AuthGateway}>
+        <IndexRoute component={Home} />
+          <Route path="/add-recs" component={YourRecs} />
+      </Route>
+    </Route>
+  );
+
+  const history = syncHistoryWithStore(browserHistory, store);
+
+  render(
+    <Provider store={store}>
+      <Router routes={routes} render={applyRouterMiddleware(useScroll())} history={history} />
+    </Provider>,
+    document.getElementById('mount')
+  );
+}
+
+init();

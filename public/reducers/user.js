@@ -1,27 +1,26 @@
+import _ from 'lodash';
+
 const userReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'FETCH_USER':
-      return { ...state };
-
     case 'FETCHING_USER':
       return {
         ...state,
         isFetching: true,
       };
 
-    case 'FETCHED_USER':
+    case 'FETCHING_USER_SUCCESS':
       return {
         ...state,
-        ...action.payload.user,
+        isLoggedIn: !_.isEmpty(action.payload.user),
+        data: action.payload.user,
         isFetching: false,
       };
 
-    case 'POSTED_COMPANY':
+    case 'FETCHING_USER_ERROR':
       return {
         ...state,
-        currentAgency: action.payload.company,
-        hasBetaAccess: action.payload.company.hasBetaAccess,
-        registrationComplete: true,
+        ...action.payload.error,
+        isFetching: false,
       };
 
     default:

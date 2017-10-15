@@ -8,9 +8,9 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import AutocompleteItem from 'components/lib/searchbox/AutocompleteItem';
 import GoButton from 'components/lib/buttons/go/GoButton';
 
-import { saveRecommendation } from 'actions/recommendation';
+const placeholder = 'Choose a City';
 
-class Searchbox extends React.Component {
+class CitySearchBox extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +26,13 @@ class Searchbox extends React.Component {
 
   onSelect(address, placeId) {
     this.setState({ address, placeId });
-    this.detailsService.getDetails({ placeId }, (place, status) => this.props.onSearch(placeId, place, status));
+
+    this.detailsService.getDetails({ placeId }, (place, status) => {
+      this.props.onSearch(place, status);
+      window.place = place;
+      console.log(place);
+      console.log(status);
+    });
   }
 
   onError(errorMsg) {
@@ -40,10 +46,11 @@ class Searchbox extends React.Component {
   }
 
   render() {
+    const options = { types: ['(cities)'] };
     const inputProps = {
       value: this.state.address,
       onChange: this.onChange,
-      placeholder: 'Add a Place',
+      placeholder: 'Pick a City',
     };
 
     return (
@@ -52,29 +59,30 @@ class Searchbox extends React.Component {
           inputProps={inputProps}
           onSelect={this.onSelect}
           onError={this.onError}
+          options={options}
           autocompleteItem={AutocompleteItem}
         />
         <GoButton onClick={this.go} />
 
-        <div className="hidden-places-mount" ref={(reference) => { this.reference = reference; }}></div>
+        <div className="hidden-city-places-mount" ref={(reference) => { this.reference = reference; }}></div>
       </div>
     );
   }
 }
 
-Searchbox.propTypes = {
+CitySearchBox.propTypes = {
   onSearch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSearch: (placeId, place, status) => { dispatch(saveRecommendation(placeId, place, status)); },
+    onSearch: () => { console.log('temporary'); },
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Searchbox);
+export default connect(mapStateToProps, mapDispatchToProps)(CitySearchBox);
 

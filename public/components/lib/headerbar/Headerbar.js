@@ -1,16 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import ShareRecButton from 'components/lib/buttons/shareRec/ShareRecButton';
-import LoginButtonContainer from 'components/lib/buttons/login/LoginButtonContainer';
+import LoginButton from 'components/lib/buttons/login/LoginButton';
 
 export default class Headerbar extends React.Component {
   render() {
     return (
       <div className="headerbar">
-        <div className="company-name">Dino</div>
+        <Link to="/">
+          <div className="company-name">Dino</div>
+        </Link>
         <nav className="nav">
-          <ShareRecButton />
-          <LoginButtonContainer />
+          <Link to="/add-recs">
+            <ShareRecButton />
+          </Link>
+          <LoginButton />
         </nav>
       </div>
       );
