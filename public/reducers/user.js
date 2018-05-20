@@ -5,7 +5,7 @@ const userReducer = (state = {}, action) => {
     case 'FETCHING_USER':
       return {
         ...state,
-        isFetching: true,
+        isPending: true,
       };
 
     case 'FETCHING_USER_SUCCESS':
@@ -13,14 +13,14 @@ const userReducer = (state = {}, action) => {
         ...state,
         isLoggedIn: !_.isEmpty(action.payload.user),
         data: action.payload.user,
-        isFetching: false,
+        isPending: false,
       };
 
     case 'FETCHING_USER_ERROR':
       return {
         ...state,
         ...action.payload.error,
-        isFetching: false,
+        isPending: false,
       };
 
     default:
@@ -28,4 +28,4 @@ const userReducer = (state = {}, action) => {
   }
 };
 
-module.exports = userReducer;
+export default userReducer;

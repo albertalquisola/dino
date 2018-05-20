@@ -12,7 +12,7 @@ class RecommendationCard extends React.Component {
 RecommendationCard.propTypes = {};
 
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return { rec: ownProps.rec };
 };
 
 const mapDispatchToProps = (dispatch) => {

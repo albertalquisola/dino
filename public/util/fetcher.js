@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import queryString from 'query-string';
 
 const credentials = 'same-origin';
 const headers = {
@@ -13,10 +14,12 @@ const headers = {
  *
  */
 const fetcher = {
-  get: async (url) => {
+  get: async (url, qs) => {
+    url = qs ? `${url}?${queryString.stringify(qs)}` : url;
+
     try {
       const response = await fetch(url, { credentials, headers });
-      return response.json();
+      return await response.json();
 
     } catch (error) {
       throw error;
@@ -30,8 +33,10 @@ const fetcher = {
     }
 
     try {
-      const response = await fetch(url, { credentials, headers, method: 'POST', body: JSON.stringify(data) });
-      return response.json();
+      let response = await fetch(url, { credentials, headers, method: 'POST', body: JSON.stringify(data) });
+      response = await response.json();
+
+      return response;
 
     } catch (error) {
       throw error;
@@ -45,8 +50,10 @@ const fetcher = {
     }
 
     try {
-      const response = await fetch(url, { credentials, headers, method: 'PATCH', body: JSON.stringify(data) });
-      return response.json();
+      let response = await fetch(url, { credentials, headers, method: 'PATCH', body: JSON.stringify(data) });
+      response = await response.json();
+
+      return response;
 
     } catch (error) {
       throw error;

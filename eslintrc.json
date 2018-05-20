@@ -35,7 +35,7 @@
     "new-cap": 0,
     "quotes": [2, "single", { "allowTemplateLiterals": true }],
     "consistent-return": 0,
-    "no-underscore-dangle": [2, { "allow": ["_json", "__express"] }],
+    "no-underscore-dangle": [2, { "allow": ["_json", "__express", "_id"] }],
     "max-len": [0, { "code": 125 }],
     "no-use-before-define": ["error", {"functions": false, "classes": true, "variables": true}],
 

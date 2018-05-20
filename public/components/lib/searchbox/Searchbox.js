@@ -26,7 +26,10 @@ class Searchbox extends React.Component {
 
   onSelect(address, placeId) {
     this.setState({ address, placeId });
-    this.detailsService.getDetails({ placeId }, (place, status) => this.props.onSearch(placeId, place, status));
+    this.detailsService.getDetails({ placeId }, (place, status) => {
+      this.props.onSearch(placeId, place, status);
+      console.log(place);
+    });
   }
 
   onError(errorMsg) {
@@ -66,7 +69,7 @@ Searchbox.propTypes = {
   onSearch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {};
 };
 

@@ -1,9 +1,13 @@
-import { connect } from 'react-redux';
 import _ from 'lodash';
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
+import { push } from 'react-router-redux';
 import PlacesAutocomplete from 'react-places-autocomplete';
+
+import { setCurrentCity } from 'actions/setCurrentCity';
+import { getFriendRecommendations } from 'actions/recommendation';
 
 import AutocompleteItem from 'components/lib/searchbox/AutocompleteItem';
 import GoButton from 'components/lib/buttons/go/GoButton';
@@ -14,8 +18,8 @@ class CitySearchBox extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { address: '' };
-    this.onChange = (address) => this.setState({ address });
+    this.state = { address: props.city };
+    this.onChange = (address) => { this.setState({ address }); };
 
     _.bindAll(this, ['onSelect', 'onError']);
   }
@@ -28,10 +32,8 @@ class CitySearchBox extends React.Component {
     this.setState({ address, placeId });
 
     this.detailsService.getDetails({ placeId }, (place, status) => {
-      this.props.onSearch(place, status);
-      window.place = place;
-      console.log(place);
-      console.log(status);
+      this.props.setCurrentCity(place.name, placeId);
+      this.props.searchForCityRecs(placeId);
     });
   }
 
@@ -41,16 +43,12 @@ class CitySearchBox extends React.Component {
     }
   }
 
-  go() {
-    console.log('going!');
-  }
-
   render() {
     const options = { types: ['(cities)'] };
     const inputProps = {
+      placeholder,
       value: this.state.address,
       onChange: this.onChange,
-      placeholder: 'Pick a City',
     };
 
     return (
@@ -62,7 +60,7 @@ class CitySearchBox extends React.Component {
           options={options}
           autocompleteItem={AutocompleteItem}
         />
-        <GoButton onClick={this.go} />
+        <GoButton onClick={() => { console.log('TODO!'); }} />
 
         <div className="hidden-city-places-mount" ref={(reference) => { this.reference = reference; }}></div>
       </div>
@@ -70,17 +68,32 @@ class CitySearchBox extends React.Component {
   }
 }
 
-CitySearchBox.propTypes = {
-  onSearch: PropTypes.func.isRequired,
+CitySearchBox.contextTypes = {
+  router: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {};
+CitySearchBox.propTypes = {
+  city: PropTypes.string,
+  setCurrentCity: PropTypes.func.isRequired,
+  searchForCityRecs: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    city: _.get(state, 'currentCity.address') || '',
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSearch: () => { console.log('temporary'); },
+    setCurrentCity: (address, placeId) => {
+      dispatch(setCurrentCity(address, placeId));
+    },
+
+    searchForCityRecs: (placeId) => {
+      dispatch(getFriendRecommendations(placeId));
+      dispatch(push('/friends/recommendations'));
+    },
   };
 };
 

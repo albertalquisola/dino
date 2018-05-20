@@ -10,11 +10,11 @@ import express from 'express';
 import expressSession from 'express-session';
 import hbs from 'hbs';
 import passport from 'passport';
-import Redis from 'ioredis';
 import { Strategy } from 'passport-local';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 
 import { getUserById } from 'services/user';
+import redisClient from 'util/redisClient';
 import config from 'config';
 import controllers from 'controllers';
 import coordinators from 'coordinators';
@@ -27,7 +27,6 @@ import 'lib/models/db';
 
 const app = express();
 
-const redisClient = new Redis(config.redis);
 const RedisStore = ConnectRedis(expressSession);
 const session = expressSession({
   store: new RedisStore({ client: redisClient }),
@@ -99,7 +98,7 @@ app.get(
 app.get(
   '*',
   (req, res, next) => {
-    res.render('index', { isProd: config.isProd });
+    res.render('index', { isProd: config.isProd, googleAPIKey: process.env.GOOGLE_API_KEY });
   }
 );
 

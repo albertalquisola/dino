@@ -1,0 +1,18 @@
+.add-recs {
+  .balloons-bg {
+    align-items: center;
+    background-image: url("/public/images/balloon_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+  }
+
+  .add-recommendation-prompt {
+    color: $black;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap-modal';
 import { connect } from 'react-redux';
 
-import { hideLoginModal } from 'actions/loginModal';
+import LoginModalActions from 'actions/loginModal';
 import FacebookLogin from 'components/lib/FacebookLogin';
 
 class LoginModal extends React.Component {
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    hideModal: () => dispatch(hideLoginModal()),
+    hideModal: () => dispatch(LoginModalActions.hideLoginModal()),
   };
 };
 
