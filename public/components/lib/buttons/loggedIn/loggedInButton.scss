@@ -1,0 +1,24 @@
+.user-settings-container {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+
+  .bubble-name {
+    margin-right: 10px;
+    color: $white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: $dino-blue;
+  }
+
+  #user-settings-dropdown {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    webkit-box-shadow: none;
+  }
+}

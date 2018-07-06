@@ -1,0 +1,46 @@
+.FriendRecs-friends-recommendations {
+  .balloons-bg {
+    align-items: center;
+    background-image: url("/public/images/balloon_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+  }
+
+  .search-prompt {
+    color: $black;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .metadata-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .city-name {
+      color: $dino-dark-green;
+      font-size: 24px;
+      margin-bottom: 10px;
+      width: 78%;
+    }
+  }
+
+  .friend-recs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .friend-recs-list {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 80%;
+    }
+  }
+}

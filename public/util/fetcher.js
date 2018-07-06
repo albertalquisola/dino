@@ -1,39 +1,12 @@
-import _ from 'lodash';
 import fetch from 'isomorphic-fetch';
+import queryString from 'query-string';
 
-function checkStatusCode(response) {
-  if (response.status >= 200 && response.status < 300)
-    return response;
-
-  const error = new Error(response.statusCodeText);
-  response.error = error;
-
-  return response;
-}
-
-function parseJson(response) {
-  return response.json();
-}
-
-function callOptionalCallback(callback) {
-  return (json) => {
-    let data = _.cloneDeep(json);
-
-    if (typeof json === 'string') {
-      try {
-        data = JSON.parse(json);
-
-      } catch (e) {
-        data = { error: new Error('error parsing JSON response!') };
-      }
-    }
-
-    if (callback)
-      return callback(data);
-
-    return data;
-  };
-}
+const credentials = 'same-origin';
+const headers = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+  'X-Requested-With': 'XMLHttpRequest',
+};
 
 /*
  * fetcher wrapper for making convenient async calls to the server
@@ -41,61 +14,51 @@ function callOptionalCallback(callback) {
  *
  */
 const fetcher = {
-  get: (url, callback) => {
-    return fetch(url, {
-      credentials: 'same-origin',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      }
-    })
-    .then(checkStatusCode)
-    .then(parseJson)
-    .then(callOptionalCallback(callback));
+  get: async (url, qs) => {
+    url = qs ? `${url}?${queryString.stringify(qs)}` : url;
+
+    try {
+      const response = await fetch(url, { credentials, headers });
+      return await response.json();
+
+    } catch (error) {
+      throw error;
+    }
   },
 
-  post: (url, data, callback) => {
-    if (typeof data === 'function') {
-      callback = data;
+  post: async (url, data) => {
+    if (!data) {
+      console.warn('trying to send a post request with no data!');
       data = {};
     }
 
-    return fetch(url, {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(checkStatusCode)
-    .then(parseJson)
-    .then(callOptionalCallback(callback));
+    try {
+      let response = await fetch(url, { credentials, headers, method: 'POST', body: JSON.stringify(data) });
+      response = await response.json();
+
+      return response;
+
+    } catch (error) {
+      throw error;
+    }
   },
 
-  patch: (url, data, callback) => {
-    if (typeof data === 'function') {
-      callback = data;
+  patch: async (url, data) => {
+    if (!data) {
+      console.warn('trying to send a patch request with no data!');
       data = {};
     }
 
-    return fetch(url, {
-      method: 'PATCH',
-      credentials: 'same-origin',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(checkStatusCode)
-    .then(parseJson)
-    .then(callOptionalCallback(callback));
-  }
+    try {
+      let response = await fetch(url, { credentials, headers, method: 'PATCH', body: JSON.stringify(data) });
+      response = await response.json();
+
+      return response;
+
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default fetcher;

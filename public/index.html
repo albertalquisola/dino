@@ -4,14 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div id="fb-root"></div>
     <div id="mount"></div>
-    <script src="https://use.fontawesome.com/dd4ca65154.js" async></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQHgooJ9_5Ub3ruI2UWZQ0p15h4eF8CQ8&libraries=places" async defer></script>
+    <div id="fb-root"></div>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{googleAPIKey}}&libraries=places" async defer></script>
+
     {{#if isProd}}
       <script type="text/javascript" src="/public/webpack_prod_bundle.js" async></script>
     {{else}}
-      <script type="text/javascript" src="/public/webpack_bundle.js" async></script>
+      <script type="text/javascript" src="/public/build/webpack_bundle.js" async></script>
     {{/if}}
   </body>
 </html>

@@ -1,0 +1,23 @@
+.headerbar {
+  background-color: $gray-lighter;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  .nav {
+    display: flex;
+  }
+
+  .login-button {
+    margin-left: 20px;
+  }
+
+  .company-name {
+    color: $black;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}

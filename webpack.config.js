@@ -1,10 +1,10 @@
 const path = require('path');
 
 const webpackConfig = {
-  entry: path.resolve(__dirname, './public/main'),
+  entry: ['babel-polyfill', path.resolve(__dirname, './public/main')],
 
   output: {
-    path: path.resolve(__dirname, './public'),
+    path: path.resolve(__dirname, './public/build'),
     filename: 'webpack_bundle.js',
     sourceMapFilename: 'webpack_bundle.js.map',
   },
@@ -94,11 +94,16 @@ const webpackConfig = {
       '.png', 'woff', '.ttf', '.eot', '.svg'],
     modules: [
       path.resolve(__dirname, './public'),
+      path.resolve(__dirname),
       'node_modules',
     ],
   },
 
-  devtool: '#inline-source-map',
+  watchOptions: {
+    poll: true,
+  },
+
+  devtool: 'inline-source-map',
 
   stats: {
     colors: true,

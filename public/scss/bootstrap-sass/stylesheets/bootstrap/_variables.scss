@@ -15,6 +15,15 @@ $bootstrap-sass-asset-helper: false !default;
 // $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 // $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
+// DINO color pallete
+$dino-purple: #8EA4D2;
+$dino-blue: #6279B8;
+$dino-gray: #F2F2F2;
+$dino-black: #343434;
+$dino-dark-green: #0E7C7B;
+$dino-green: #17BEBB;
+$dino-light-green: #9AD1D4;
+
 $gray-base:              #404040 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
 $gray-dark:              lighten($gray-base, 20%) !default;   // #333
@@ -22,7 +31,8 @@ $gray:                   #8F8F8F !default;
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 //== Stag Specific Color Palette
-$white:                  #fff;
+$blue:                   #20b4bc;
+$white:                  #ffffff;
 $cream:                  #FBF8F2;
 $orange:                 #FAAF40;
 $red:                    #F05A29;
@@ -33,81 +43,10 @@ $gray-mid:               #8F8F8F;
 $black:                  #171616;
 $modal-gray:             #5C5C5C;
 $orange-light:           lighten($orange, 13.5%) !default;
+$blue-light:             lighten($blue, 13.5%) !default;
 $dark-gold:              #A77222;
 
-//== Scorecard Color Palette
-$a-grade:                $green;
-$b-grade:                $orange;
-$c-grade:                $orange;
-$d-grade:                $red;
-$f-grade:                $red;
-
-//== sprite specific order rankings
-$compass-height:         -50;
-
-$a-compass:              2;
-$b-compass:              0;
-$c-compass:              0;
-$d-compass:              1;
-$f-compass:              1;
-
-$social-logo-height:     -100;
-$social-logo-width:      -100;
-
-$not-connected:          0;
-$connected:              1;
-
-
-$pinterest:              0;
-$twitter:                1;
-$linkedin:               2;
-$facebook:               3;
-$googleplus:             4;
-$instagram:              5;
-
-$seo-icon-height:        -100;
-$seo-icon-width:         -100;
-
-$traffic:                0;
-$search:                 1;
-$links:                  2;
-$structure:              3;
-$security:               4;
-
-$seo-gray:               0;
-$seo-green:              1;
-$seo-orange:             2;
-$seo-red:                3;
-
-
-$bullet-height:          -80;
-$small-bullet-height:    -32;
-
-$green-bullet:            0;
-$orange-bullet:           1;
-$red-bullet:              2;
-$gray-bullet:             3;
-
-
-$logo-height:             -100;
-
-$hubspot-logo:            0;
-$moz-logo:                1;
-$google-logo:             2;
-$alexa-logo:              3;
-$linkedin-logo:           4;
-$twitter-logo:            5;
-$instagram-logo:          6;
-$pinterest-logo:          7;
-$google-plus-logo:        8;
-$youtube-logo:            9;
-
-$score-coin-height:       -199;
-
-$mobile-coin:             0;
-$desktop-coin:            1;
-
-$brand-primary:          $orange !default;
+$brand-primary:          $blue !default;
 $brand-success:          #5cb85c !default;
 $brand-info:             $gray-base !default;
 $brand-warning:          #f0ad4e !default;

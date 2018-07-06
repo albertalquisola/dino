@@ -1,10 +1,11 @@
-module.exports = {
-  addSocialAccount: require('./addSocialAccount'),
-  addCompetitor: require('./addCompetitor'),
-  company: require('./company'),
-  competitors: require('./competitors'),
-  competitorReport: require('./competitorReport'),
-  scorecard: require('./scorecard'),
-  socialAccounts: require('./socialAccounts'),
-  user: require('./user')
+import city from './city';
+import loginModal from './loginModal';
+import recommendation from './recommendation';
+import user from './user';
+
+export default {
+  loginModal,
+  recommendation,
+  city,
+  user,
 };

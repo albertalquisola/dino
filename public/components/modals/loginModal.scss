@@ -1,0 +1,31 @@
+.login-modal {
+  .modal-dialog {
+    width: 300px;
+  }
+
+  .modal-content {
+    border-radius: 3px;
+
+    .modal-header {
+      border-bottom: none;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .modal-body {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+
+      .LoginModal-content {
+
+      }
+
+      .LoginModal-title {
+        bottom: 20px;
+        position: relative;
+        text-align: center;
+      }
+    }
+  }
+}

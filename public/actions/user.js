@@ -1,74 +1,37 @@
 import fetcher from 'util/fetcher';
 
 const USER_ACTIONS = {
-  errorFetchingUser: (error) => {
-    return {
-      type: 'ERROR_FETCHING_USER',
-      payload: { error }
-    };
-  },
-
-  errorMarkingAsReturningUser: (error) => {
-    return {
-      type: 'ERROR_MARKING_AS_RETURNING_USER',
-      payload: { error }
-    };
-  },
-
-  fetchedUser: (user) => {
-    if (!user)
-      user = {};
-
-    return {
-      type: 'FETCHED_USER',
-      payload: { user }
-    };
-  },
-
   fetchingUser: () => {
-    return {
-      type: 'FETCHING_USER'
-    };
+    return { type: 'FETCHING_USER' };
   },
 
-  markingAsReturningUser: () => {
-    return {
-      type: 'MARKING_AS_RETURNING_USER'
-    };
+  fetchUserSuccess: (user) => {
+    return { type: 'FETCHING_USER_SUCCESS', payload: { user } };
   },
 
-  markedAsReturningUser: () => {
-    return {
-      type: 'MARKED_AS_RETURNING_USER'
-    };
-  }
+  fetchUserError: (error) => {
+    return { type: 'FETCHING_USER_ERROR', payload: { error } };
+  },
 };
 
-exports.fetchUser = () => {
-  return (dispatch) => {
+function fetchUser() {
+  return async (dispatch) => {
     dispatch(USER_ACTIONS.fetchingUser());
+    let response;
 
-    return fetcher.get('/user', (json) => {
-      if (json.error)
-        return dispatch(USER_ACTIONS.errorFetchingUser(json.error));
+    try {
+      response = await fetcher.get('/user');
+      if (response.user) { window.user = response.user; }
 
-      if (json.user) { window.user = json.user; }
+      dispatch(USER_ACTIONS.fetchUserSuccess(response.user));
+    } catch (error) {
+      dispatch(USER_ACTIONS.fetchUserError(error));
+    }
 
-
-      return dispatch(USER_ACTIONS.fetchedUser(json.user));
-    });
+    return response;
   };
-};
+}
 
-exports.markAsReturningUser = (userId) => {
-  return (dispatch) => {
-    dispatch(USER_ACTIONS.markingAsReturningUser());
-
-    fetcher.patch(`/api/v1/users/${userId}/new-user`, (json) => {
-      if (json.error)
-        return dispatch(USER_ACTIONS.errorMarkingAsReturningUser(json.error));
-
-      return dispatch(USER_ACTIONS.markedAsReturningUser());
-    });
-  };
+export default {
+  fetchUser,
 };

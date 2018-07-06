@@ -7,3 +7,7 @@ npm-debug.log
 screenshots
 sentry-backup
 .idea
+public/build/webpack_bundle.js
+public/build/webpack_bundle.js.map
+webpack_prod_bundle.js
+webpack_prod_bundle.js.map

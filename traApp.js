@@ -10,12 +10,14 @@ import express from 'express';
 import expressSession from 'express-session';
 import hbs from 'hbs';
 import passport from 'passport';
-import Redis from 'ioredis';
 import { Strategy } from 'passport-local';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 
+import { getUserById } from 'services/user';
+import redisClient from 'util/redisClient';
 import config from 'config';
 import controllers from 'controllers';
+import coordinators from 'coordinators';
 import errorHandler from 'util/errorHandler';
 import mw from 'middleware';
 import routes from 'routes';
@@ -25,7 +27,6 @@ import 'lib/models/db';
 
 const app = express();
 
-const redisClient = new Redis(config.redis);
 const RedisStore = ConnectRedis(expressSession);
 const session = expressSession({
   store: new RedisStore({ client: redisClient }),
@@ -64,15 +65,21 @@ passport.use(new FacebookStrategy({
   clientSecret: process.env.FACEBOOK_SECRET,
   callbackURL: 'http://localhost:3000/auth/facebook/callback',
   passReqToCallback: true,
-}, controllers.user.facebookSignup,
+}, coordinators.auth.facebookSignup,
 ));
 
 passport.serializeUser((id, callback) => {
   callback(null, id);
 });
 
-passport.deserializeUser((id, callback) => {
-  controllers.user.getUserById(id, (err, user) => callback(err, user));
+passport.deserializeUser(async (id, callback) => {
+  try {
+    const user = await getUserById(id);
+    return callback(null, user);
+
+  } catch (error) {
+    return callback(error);
+  }
 });
 
 // configure our routes
@@ -91,7 +98,7 @@ app.get(
 app.get(
   '*',
   (req, res, next) => {
-    res.render('index', { isProd: config.isProd });
+    res.render('index', { isProd: config.isProd, googleAPIKey: process.env.GOOGLE_API_KEY });
   }
 );
 

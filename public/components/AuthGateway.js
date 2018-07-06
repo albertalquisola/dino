@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class AuthGateway extends React.Component {
   componentWillMount() {
@@ -11,5 +12,5 @@ export default class AuthGateway extends React.Component {
 }
 
 AuthGateway.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };

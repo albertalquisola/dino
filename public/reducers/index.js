@@ -1,10 +1,15 @@
-module.exports = {
-  addSocialAccount: require('./addSocialAccount'),
-  addCompetitor: require('./addCompetitor'),
-  company: require('./company'),
-  competitors: require('./competitors'),
-  competitorReport: require('./competitorReport'),
-  user: require('./user'),
-  scorecard: require('./scorecard'),
-  socialAccounts: require('./socialAccounts')
+import currentCity from 'reducers/city';
+import friendRecommendations from 'reducers/friendRecommendations';
+import loginModal from 'reducers/loginModal';
+import recommendations from 'reducers/recommendations';
+import userRecommendations from 'reducers/userRecommendations';
+import user from 'reducers/user';
+
+export default {
+  currentCity,
+  friendRecommendations,
+  loginModal,
+  recommendations,
+  userRecommendations,
+  user,
 };
