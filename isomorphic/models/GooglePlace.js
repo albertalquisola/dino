@@ -121,9 +121,9 @@ class OpeningHours extends BaseModel {
   constructor(props) {
     super(props);
 
-    this.open_now = props.open_now;
-    this.periods = _.map(props.periods, (period) => new OpenClosePeriod(period));
-    this.weekday_text = props.weekday_text;
+    this.open_now = _.get(props, 'open_now', false);
+    this.periods = props ? _.map(props.periods, (period) => new OpenClosePeriod(period)) : [];
+    this.weekday_text = _.get(props, 'weekday_text', null);
 
     super.checkPropTypes();
   }
@@ -132,7 +132,7 @@ class OpeningHours extends BaseModel {
     return {
       open_now: PropTypes.bool.isRequired,
       periods: PropTypes.arrayOf(PropTypes.instanceOf(OpenClosePeriod)).isRequired,
-      weekday_text: PropTypes.arrayOf(PropTypes.string).isRequired,
+      weekday_text: PropTypes.arrayOf(PropTypes.string),
     };
   }
 }
@@ -193,22 +193,32 @@ export default class GooglePlace extends BaseModel {
     super.checkPropTypes();
   }
 
+  getTypes() {
+    return _.join(this.types, ', ');
+  }
+
+  getCity() {
+    const ac = _.find(this.address_components, (a) => _.includes(a.types, ['locality']));
+    return _.get(ac, 'long_name', 'Unknown Location');
+  }
+
+
   static get propTypes() {
     return {
       address_components: PropTypes.arrayOf(PropTypes.instanceOf(AddressComponent)),
       formatted_address: PropTypes.string.isRequired,
-      formatted_phone_number: PropTypes.string.isRequired,
+      formatted_phone_number: PropTypes.string,
       geometry: PropTypes.instanceOf(Geometry).isRequired,
       html_attributions: PropTypes.arrayOf(PropTypes.string),
       icon: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      international_phone_number: PropTypes.string.isRequired,
+      international_phone_number: PropTypes.string,
       name: PropTypes.string.isRequired,
       opening_hours: PropTypes.instanceOf(OpeningHours).isRequired,
       photos: PropTypes.arrayOf(PropTypes.instanceOf(Photo)).isRequired,
       place_id: PropTypes.string.isRequired,
       price_level: PropTypes.number,
-      rating: PropTypes.number.isRequired,
+      rating: PropTypes.number,
       reference: PropTypes.string.isRequired,
       reviews: PropTypes.arrayOf(PropTypes.instanceOf(Review)).isRequired,
       scope: PropTypes.string.isRequired,

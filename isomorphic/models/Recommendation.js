@@ -16,6 +16,22 @@ export default class Recommendation extends BaseModel {
     super.checkPropTypes();
   }
 
+  get name() {
+    return this.place.getName();
+  }
+
+  get categories() {
+    return this.place.getCategories();
+  }
+
+  get location() {
+    return this.place.getLocation();
+  }
+
+  get priceRange() {
+    return this.place.getPriceRange();
+  }
+
   static get propTypes() {
     return {
       count: PropTypes.number.isRequired,

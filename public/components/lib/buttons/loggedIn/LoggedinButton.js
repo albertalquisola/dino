@@ -18,7 +18,7 @@ class LoggedInButton extends React.Component {
           </Dropdown.Toggle>
           <Dropdown.Menu className="dropdown-menu-right">
             <MenuItem eventKey="1">Settings</MenuItem>
-            <MenuItem href="/auth/logout" eventKey="2">Log Out</MenuItem>
+            <MenuItem href="/auth/logout" eventKey="1">Log Out</MenuItem>
           </Dropdown.Menu>
         </Dropdown>
         </div>

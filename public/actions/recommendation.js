@@ -106,16 +106,23 @@ export function getFriendRecommendations(placeId) {
     if (!userId)
       return dispatch(REC_ACTIONS.fetchFriendRecsError(new Error('unable to get user ID for user!')));
 
+    let response;
     try {
-      const response = await fetcher.get(`/api/v1/users/${userId}/friends-recommendations`, { placeId });
-      if (response.error)
-        return dispatch(REC_ACTIONS.fetchFriendRecsError(response.error));
-
-      const recommendations = _.map(response.friendRecommendations, (rec) => new Recommendation(rec));
-      return dispatch(REC_ACTIONS.fetchFriendRecsSuccess(recommendations));
-
+      response = await fetcher.get(`/api/v1/users/${userId}/friends-recommendations`, { placeId });
     } catch (error) {
       return dispatch(REC_ACTIONS.fetchFriendRecsError(error));
     }
+
+    if (response.error)
+      return dispatch(REC_ACTIONS.fetchFriendRecsError(response.error));
+
+    const recommendations = _.map(response.friendRecommendations, (rec) => new Recommendation(rec));
+    return dispatch(REC_ACTIONS.fetchFriendRecsSuccess(recommendations));
   };
 }
+
+export default {
+  getFriendRecommendations,
+  fetchUserRecommendations,
+  saveRecommendation,
+};

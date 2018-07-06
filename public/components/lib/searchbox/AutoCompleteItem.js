@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const AutocompleteItem = ({ formattedSuggestion }) => (
-  <div className="item">
+  <div className="AutocompleteItem-item">
     <i className="fa fa-map-marker" />
-    <strong>{formattedSuggestion.mainText} </strong>
+    <strong className="main-text">{formattedSuggestion.mainText}</strong>
     <small className="text-muted"> {formattedSuggestion.secondaryText}</small>
   </div>
 );

@@ -6,7 +6,6 @@ import { findDOMNode } from 'react-dom';
 import PlacesAutocomplete from 'react-places-autocomplete';
 
 import AutocompleteItem from 'components/lib/searchbox/AutocompleteItem';
-import GoButton from 'components/lib/buttons/go/GoButton';
 
 import { saveRecommendation } from 'actions/recommendation';
 
@@ -27,8 +26,8 @@ class Searchbox extends React.Component {
   onSelect(address, placeId) {
     this.setState({ address, placeId });
     this.detailsService.getDetails({ placeId }, (place, status) => {
-      this.props.onSearch(placeId, place, status);
       console.log(place);
+      this.props.onSearch(placeId, place, status);
     });
   }
 
@@ -36,10 +35,6 @@ class Searchbox extends React.Component {
     if (errorMsg === 'ZERO_RESULTS') {
       console.log('sorry, no results available');
     }
-  }
-
-  go() {
-    console.log('going!');
   }
 
   render() {
@@ -52,12 +47,12 @@ class Searchbox extends React.Component {
     return (
       <div className="searchbox-container">
         <PlacesAutocomplete
+          highlightFirstSuggestion={true}
           inputProps={inputProps}
           onSelect={this.onSelect}
           onError={this.onError}
           autocompleteItem={AutocompleteItem}
         />
-        <GoButton onClick={this.go} />
 
         <div className="hidden-places-mount" ref={(reference) => { this.reference = reference; }}></div>
       </div>

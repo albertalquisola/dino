@@ -3,12 +3,13 @@ import Modal from 'react-bootstrap-modal';
 import { connect } from 'react-redux';
 
 import LoginModalActions from 'actions/loginModal';
-import FacebookLogin from 'components/lib/FacebookLogin';
+import FacebookLogin from 'components/lib/buttons/facebookLogin/FacebookLogin';
 
 class LoginModal extends React.Component {
   render() {
     const modalBody = (
-      <div className="login-modal-content">
+      <div className="LoginModal-content">
+        <div className="LoginModal-title">Let's get started!</div>
         <FacebookLogin />
       </div>
     );

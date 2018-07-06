@@ -24,6 +24,8 @@ import MyRecs from 'components/myRecs/myRecs';
 import AddRecs from 'components/addRecs/AddRecs';
 
 import 'scss/bootstrap-sass/stylesheets/_bootstrap.scss';
+// import 'scss/materialize.min.css';
+// import 'js/materialize.min.js';
 import 'scss/dino.scss';
 
 

@@ -101,8 +101,8 @@ class Location extends BaseModel {
   static get propTypes() {
     return {
       address1: PropTypes.string.isRequired,
-      address2: PropTypes.string.isRequired,
-      address3: PropTypes.string.isRequired,
+      address2: PropTypes.string,
+      address3: PropTypes.string,
       city: PropTypes.string.isRequired,
       country: PropTypes.string.isRequired,
       cross_streets: PropTypes.string.isRequired,
@@ -139,6 +139,11 @@ export default class YelpPlace extends BaseModel {
     super.checkPropTypes();
   }
 
+  getCategoryNames() {
+    const categories = _.map(this.categories, (c) => c.title);
+    return _.join(categories, ', ');
+  }
+
   static get propTypes() {
     return {
       alias: PropTypes.string.isRequired,
@@ -154,7 +159,7 @@ export default class YelpPlace extends BaseModel {
       name: PropTypes.string.isRequired,
       phone: PropTypes.string.isRequired,
       photos: PropTypes.arrayOf(PropTypes.string).isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.string,
       rating: PropTypes.number.isRequired,
       review_count: PropTypes.number.isRequired,
       transactions: PropTypes.array.isRequired,

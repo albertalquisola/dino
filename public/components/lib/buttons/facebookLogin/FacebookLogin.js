@@ -1,7 +1,11 @@
 import React from 'react';
 
 export default () => {
-  return (<button onClick={loginWithFacebook}>Log In with Facebook</button>);
+  return (
+    <button className="facebookLogin-loginBtn loginBtn--facebook" onClick={loginWithFacebook}>
+      Login with Facebook
+    </button>
+  );
 };
 
 function loginWithFacebook() {

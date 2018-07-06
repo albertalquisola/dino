@@ -3,11 +3,14 @@
 
 // lib styles
 @import "../components/lib/headerbar/headerbar.scss";
+@import "../components/lib/searchbox/autocompleteItem.scss";
 @import "../components/lib/searchbox/searchbox.scss";
+@import "../components/lib/buttons/facebookLogin/facebookLogin.scss";
 @import "../components/lib/buttons/shareRec/shareRecButton.scss";
-@import "../components/lib/buttons/go/goButton.scss";
 @import "../components/lib/buttons/login/loginButton.scss";
 @import "../components/lib/buttons/loggedIn/loggedInButton.scss";
+@import "../components/lib/recCard/recCard.scss";
+@import "../components/lib/friendBubble/friendBubble.scss";
 
 // home styles
 @import "dino/home/home.scss";
@@ -15,6 +18,9 @@
 // adding to your list styles
 @import "dino/addRecs/addRecs.scss";
 @import "dino/friendRecs/friendRecs.scss";
+
+// modal styles
+@import "../components/modals/loginModal.scss";
 
 //// main global app styles
 //@import "dino/app.scss";
