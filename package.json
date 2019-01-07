@@ -6,6 +6,7 @@
   "main": "app.js",
   "scripts": {
     "start": " source ./env/production && source ./env/secrets && node app.js",
+    "webpack-build": "webpack --config ./webpack.config.js --colors --progress",
     "webpack-dev": "webpack --config ./webpack.config.js --watch --colors --progress",
     "webstorm-start": "source ./env/development && source ./env/dev-secrets && node app.js",
     "dev-start": "source ./env/development && source ./env/dev-secrets && nodemon --ignore '/logs' --ignore 'public/*' --inspect=0.0.0.0 app.js",
@@ -77,6 +78,7 @@
     "react-spinkit": "^1.1.11",
     "redux": "^3.5.2",
     "redux-thunk": "^2.3.0",
+    "request": "^2.87.0",
     "request-promise": "^4.2.2",
     "roboto-fontface": "^0.9.0",
     "url-parse": "^1.4.1",

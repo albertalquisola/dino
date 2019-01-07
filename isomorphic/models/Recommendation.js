@@ -9,9 +9,9 @@ export default class Recommendation extends BaseModel {
   constructor(props) {
     super(props);
 
+    this.place = new Place(props.place);
     this.count = props.count;
     this.friends = _.map(props.friends, (friend) => new User(friend));
-    this.place = new Place(props.place);
 
     super.checkPropTypes();
   }

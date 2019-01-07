@@ -17,7 +17,8 @@ class FriendRecommendations extends React.Component {
 	}
 
 	render() {
-		const friendRecs = _.map(this.props.friendRecs, (friendRec, index) => <RecCard rec={friendRec} key={index} />);
+		const recs = this.props.friendRecs;
+		const friendRecs = _.map(recs, (rec, index) => <RecCard rec={rec} key={index} />);
 
 		return (
 			<div className="FriendRecs-friends-recommendations">

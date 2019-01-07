@@ -15,4 +15,12 @@
     font-size: 18px;
     margin-bottom: 20px;
   }
+
+  .recommendations-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 20px;
+  }
 }

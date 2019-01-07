@@ -11,28 +11,28 @@ export default class Place extends BaseModel {
 
     this.id = props.id;
     this.googlePlaceId = props.googlePlaceId;
-    this.googlePlace = new GooglePlace(props.googlePlaceData);
-    this.yelpPlace = new YelpPlace(props.yelpPlaceData);
+    this.googlePlaceData = new GooglePlace(props.googlePlaceData);
+    this.yelpPlaceData = new YelpPlace(props.yelpPlaceData);
   }
 
   getName() {
-    return this.googlePlace.name || this.yelpPlace.name;
+    return this.googlePlaceData.name || this.yelpPlaceData.name;
   }
 
   getCategories() {
-    return this.yelpPlace.getCategoryNames() || this.googlePlace.getTypes();
+    return this.yelpPlaceData.getCategoryNames() || this.googlePlaceData.getTypes();
   }
 
   getLocation() {
-    const neighborhood = _.find(this.googlePlace.address_components, (ac) => {
+    const neighborhood = _.find(this.googlePlaceData.address_components, (ac) => {
       return _.includes(ac.types, 'neighborhood');
     });
 
-    return _.get(neighborhood, 'long_name', null) || this.yelpPlace.location.city || this.googlePlace.getCity();
+    return _.get(neighborhood, 'long_name', null) || this.yelpPlaceData.location.city || this.googlePlaceData.getCity();
   }
 
   getPriceRange() {
-    return this.yelpPlace.price || this.googlePlace.price_level;
+    return this.yelpPlaceData.price || this.googlePlaceData.price_level;
   }
 
   static get propTypes() {

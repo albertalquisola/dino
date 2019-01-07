@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 
 import Headerbar from 'components/lib/headerbar/Headerbar';
 import Searchbox from 'components/lib/searchbox/Searchbox';
-import RecommendationCard from 'components/lib/recommendationCard/RecommendationCard';
+import RecCard from 'components/lib/recCard/RecCard';
 
 class AddRecs extends React.Component {
   render() {
-    const recommendations = _.map(this.props.recommendations, (rec) => <RecommendationCard key={rec.id} rec={rec} />);
+    const recommendations = _.map(this.props.recommendations, (rec, idx) => <RecCard rec={rec} key={idx} />);
 
     return (
       <div className="add-recs">

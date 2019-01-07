@@ -1,5 +1,6 @@
 .RecCard-container {
   background-color: $dino-gray;
+  border: 1px solid $dino-light-purple;
   border-radius: 3px;
   box-shadow: 0px 0px 8px 1px #c1c8d6;
   display: flex;
@@ -13,11 +14,12 @@
   .name-type-location-container {
     .name {
       color: $dino-blue;
-      font-weight: bold;
+      font-size: 16px;
       margin-bottom: 10px;
     }
 
     .types, .location {
+      font-family: 'Roboto';
       font-size: 12px;
     }
   }

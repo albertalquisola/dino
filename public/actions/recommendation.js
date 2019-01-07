@@ -65,10 +65,10 @@ export function fetchUserRecommendations(userId) {
 
     try {
       const response = await fetcher.get(`/api/v1/users/${userId}/recommendations`);
-      if (response.error)
-        return dispatch(REC_ACTIONS.fetchUserRecsError(response.error));
+      return response.error
+        ? dispatch(REC_ACTIONS.fetchUserRecsError(response.error))
+        : dispatch(REC_ACTIONS.fetchUserRecsSuccess(response.recommendations));
 
-      return dispatch(REC_ACTIONS.fetchUserRecsSuccess(response.recommendations));
     } catch (error) {
       return dispatch(REC_ACTIONS.fetchUserRecsError(error));
     }
@@ -88,10 +88,10 @@ export function saveRecommendation(placeId, recommendation, status) {
 
     try {
       const response = await fetcher.post(`/api/v1/users/${userId}/recommendations`, { placeId, recommendation });
-      if (response.error)
-        return dispatch(REC_ACTIONS.saveRecError(response.error));
+      return response.error
+        ? dispatch(REC_ACTIONS.saveRecError(response.error))
+        : dispatch(REC_ACTIONS.saveRecSuccess(new Recommendation(response.recommendation)));
 
-      return dispatch(REC_ACTIONS.saveRecSuccess(response.recommendation));
     } catch (error) {
       return dispatch(REC_ACTIONS.saveRecError(error));
     }
@@ -100,24 +100,27 @@ export function saveRecommendation(placeId, recommendation, status) {
 
 export function getFriendRecommendations(placeId) {
   return async (dispatch, getState) => {
+    let response;
+    const userId = _.get(getState(), 'user.data.id');
+
+    if (!userId) {
+      return dispatch(REC_ACTIONS.fetchFriendRecsError(new Error('unable to get user ID for user!')));
+    }
+
     dispatch(REC_ACTIONS.fetchFriendRecs());
 
-    const userId = _.get(getState(), 'user.data.id');
-    if (!userId)
-      return dispatch(REC_ACTIONS.fetchFriendRecsError(new Error('unable to get user ID for user!')));
-
-    let response;
     try {
       response = await fetcher.get(`/api/v1/users/${userId}/friends-recommendations`, { placeId });
+      if (response.error) {
+        return dispatch(REC_ACTIONS.fetchFriendRecsError(response.error));
+      }
+
+      const recommendations = _.map(response.friendRecommendations, (rec) => new Recommendation(rec));
+      return dispatch(REC_ACTIONS.fetchFriendRecsSuccess(recommendations));
+
     } catch (error) {
       return dispatch(REC_ACTIONS.fetchFriendRecsError(error));
     }
-
-    if (response.error)
-      return dispatch(REC_ACTIONS.fetchFriendRecsError(response.error));
-
-    const recommendations = _.map(response.friendRecommendations, (rec) => new Recommendation(rec));
-    return dispatch(REC_ACTIONS.fetchFriendRecsSuccess(recommendations));
   };
 }
 

@@ -5,11 +5,11 @@ import BaseModel from 'isomorphic/models/BaseModel';
 
 export class AddressComponent extends BaseModel {
   constructor(props) {
-    super(props);
+    super();
 
-    this.long_name = props.long_name;
-    this.short_name = props.short_name;
-    this.types = props.types;
+    this.long_name = _.get(props, 'long_name');
+    this.short_name = _.get(props, 'short_name');
+    this.types = _.get(props, 'types');
 
     super.checkPropTypes();
   }
@@ -25,24 +25,24 @@ export class AddressComponent extends BaseModel {
 
 class Period extends BaseModel {
   constructor(props) {
-    super(props);
+    super();
 
-    this.day = props.day;
-    this.hours = props.hours;
-    this.minutes = props.minutes;
-    this.next_date = props.next_date;
-    this.time = props.time;
+    this.day = _.get(props, 'day');
+    this.hours = _.get(props, 'hours');
+    this.minutes = _.get(props, 'minutes');
+    this.next_date = _.get(props, 'next_date');
+    this.time = _.get(props, 'time');
 
     super.checkPropTypes();
   }
 
   static get propTypes() {
     return {
-      day: PropTypes.number.isRequired,
-      hours: PropTypes.number.isRequired,
-      minutes: PropTypes.number.isRequired,
+      day: PropTypes.number,
+      hours: PropTypes.number,
+      minutes: PropTypes.number,
       next_date: PropTypes.number,
-      time: PropTypes.string.isRequired,
+      time: PropTypes.string,
     };
   }
 }
@@ -69,10 +69,10 @@ class Photo extends BaseModel {
   constructor(props) {
     super(props);
 
-    this.height = props.height;
-    this.width = props.width;
-    this.photo_reference = props.photo_reference;
-    this.html_attributions = props.html_attributions;
+    this.height = _.get(props, 'height');
+    this.width = _.get(props, 'width');
+    this.photo_reference = _.get(props, 'photo_reference');
+    this.html_attributions = _.get(props, 'html_attributions');
 
     super.checkPropTypes();
   }
@@ -91,14 +91,14 @@ class Review extends BaseModel {
   constructor(props) {
     super(props);
 
-    this.author_name = props.author_name;
-    this.author_url = props.author_url;
-    this.language = props.language;
-    this.profile_photo_url = props.profile_photo_url;
-    this.rating = props.rating;
-    this.relative_time_description = props.relative_time_description;
-    this.text = props.text;
-    this.time = props.time;
+    this.author_name = _.get(props, 'author_name');
+    this.author_url = _.get(props, 'author_url');
+    this.language = _.get(props, 'language');
+    this.profile_photo_url = _.get(props, 'profile_photo_url');
+    this.rating = _.get(props, 'rating');
+    this.relative_time_description = _.get(props, 'relative_time_description');
+    this.text = _.get(props, 'text');
+    this.time = _.get(props, 'time');
 
     super.checkPropTypes();
   }
@@ -122,7 +122,7 @@ class OpeningHours extends BaseModel {
     super(props);
 
     this.open_now = _.get(props, 'open_now', false);
-    this.periods = props ? _.map(props.periods, (period) => new OpenClosePeriod(period)) : [];
+    this.periods = props && props.periods ? _.map(props.periods, (period) => new OpenClosePeriod(period)) : [];
     this.weekday_text = _.get(props, 'weekday_text', null);
 
     super.checkPropTypes();
@@ -139,10 +139,10 @@ class OpeningHours extends BaseModel {
 
 class Geometry extends BaseModel {
   constructor(props) {
-    super(props);
+    super();
 
-    this.location = props.location;
-    this.viewPort = props.viewPort;
+    this.location = _.get(props, 'location');
+    this.viewPort = _.get(props, 'viewPort');
 
     super.checkPropTypes();
   }

@@ -25,9 +25,10 @@ class Searchbox extends React.Component {
 
   onSelect(address, placeId) {
     this.setState({ address, placeId });
+
     this.detailsService.getDetails({ placeId }, (place, status) => {
-      console.log(place);
       this.props.onSearch(placeId, place, status);
+      this.setState({ address: '', placeId: null });
     });
   }
 
